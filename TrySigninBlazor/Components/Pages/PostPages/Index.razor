@@ -1,0 +1,41 @@
+﻿@page "/posts"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using TrySigninBlazor.Data
+@using TrySigninBlazor.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<TrySigninBlazor.Data.TrySigninBlazorContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="posts/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.Post">
+    <PropertyColumn Property="post => post.Image" />
+    <PropertyColumn Property="post => post.Name" />
+    <PropertyColumn Property="post => post.Type" />
+    <PropertyColumn Property="post => post.Height" />
+    <PropertyColumn Property="post => post.Width" />
+    <PropertyColumn Property="post => post.Depth" />
+
+    <TemplateColumn Context="post">
+        <a href="@($"posts/edit?id={post.Id}")">Edit</a> |
+        <a href="@($"posts/details?id={post.Id}")">Details</a> |
+        <a href="@($"posts/delete?id={post.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private TrySigninBlazorContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

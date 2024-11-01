@@ -1,0 +1,58 @@
+﻿@page "/posts/details"
+@using Microsoft.EntityFrameworkCore
+@using TrySigninBlazor.Data
+@inject IDbContextFactory<TrySigninBlazor.Data.TrySigninBlazorContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>Post</h2>
+    <hr />
+    @if (post is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">Image</dt>
+            <dd class="col-sm-10">@post.Image</dd>
+            <dt class="col-sm-2">Name</dt>
+            <dd class="col-sm-10">@post.Name</dd>
+            <dt class="col-sm-2">Description</dt>
+            <dd class="col-sm-10">@post.Description</dd>
+            <dt class="col-sm-2">Type</dt>
+            <dd class="col-sm-10">@post.Type</dd>
+            <dt class="col-sm-2">Height</dt>
+            <dd class="col-sm-10">@post.Height</dd>
+            <dt class="col-sm-2">Width</dt>
+            <dd class="col-sm-10">@post.Width</dd>
+            <dt class="col-sm-2">Depth</dt>
+            <dd class="col-sm-10">@post.Depth</dd>
+        </dl>
+        <div>
+            <a href="@($"/posts/edit?id={post.Id}")">Edit</a> |
+            <a href="@($"/posts")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private Post? post;
+
+    [SupplyParameterFromQuery]
+    private int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        post = await context.Post.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (post is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}
