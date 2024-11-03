@@ -33,8 +33,8 @@
             <dd class="col-sm-10">@post.Depth</dd>
         </dl>
         <div>
-            <a href="@($"/posts/edit?id={post.Id}")">Edit</a> |
-            <a href="@($"/posts")">Back to List</a>
+            <a href="@($"/posts/edit?id={post.Id}")" class="edit-link">Edit</a> |
+            <a href="@($"/posts")" class="back-list">Back to List</a>
         </div>
     }
 </div>
@@ -56,3 +56,31 @@
         }
     }
 }
+
+<style>
+    .back-list {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 6px 12px;
+        background-color: #28a745;
+        color: white;
+        text-decoration: white;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .edit-link {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 6px 12px;
+        background-color: #1E90FF;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+        .edit-link:hover {
+            background-color: #1C86EE;
+        }
+</style>

@@ -64,7 +64,7 @@ else
 }
 
 <div>
-    <a href="/posts">Back to List</a>
+    <a href="/posts" class="back-list">Back to List</a>
 </div>
 
 @code {
@@ -117,3 +117,15 @@ else
         return context.Post.Any(e => e.Id == id);
     }
 }
+<style>
+    .back-list {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 6px 12px;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+</style>
