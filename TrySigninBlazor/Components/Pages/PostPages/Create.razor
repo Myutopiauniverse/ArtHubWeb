@@ -1,8 +1,11 @@
 ﻿@page "/posts/create"
 @using Microsoft.EntityFrameworkCore
 @using TrySigninBlazor.Data
-@inject IDbContextFactory<TrySigninBlazor.Data.TrySigninBlazorContext> DbFactory
+@inject IDbContextFactory<TrySigninBlazorContext> DbFactory
 @inject NavigationManager NavigationManager
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.Extensions.Logging
+
 
 <PageTitle>Create</PageTitle>
 
@@ -10,9 +13,10 @@
 
 <h2>Post</h2>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
-        <EditForm method="post" Model="Post" OnValidSubmit="AddPost" FormName="create" Enhance>
+        <EditForm Model="Post" OnValidSubmit="AddPost" FormName="create">
             <DataAnnotationsValidator />
             <ValidationSummary class="text-danger" />
             <div class="mb-3">
@@ -21,9 +25,9 @@
                 <ValidationMessage For="() => Post.Image" class="text-danger" />
             </div>
             <div class="mb-3">
-                <label for="name" class="form-label">Artwork Name:</label> 
-                <InputText id="name" @bind-Value="Post.Name" class="form-control" /> 
-                <ValidationMessage For="() => Post.Name" class="text-danger" /> 
+                <label for="name" class="form-label">Artwork Name:</label>
+                <InputText id="name" @bind-Value="Post.Name" class="form-control" />
+                <ValidationMessage For="() => Post.Name" class="text-danger" />
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description:</label>
@@ -31,32 +35,31 @@
                 <ValidationMessage For="() => Post.Description" class="text-danger" />
             </div>
             <div class="mb-3">
-                <label for="type" class="form-label">Type of Artwork:</label> 
-                <InputText id="type" @bind-Value="Post.Type" class="form-control" /> 
-                <ValidationMessage For="() => Post.Type" class="text-danger" /> 
-            </div>        
+                <label for="type" class="form-label">Type of Artwork:</label>
+                <InputText id="type" @bind-Value="Post.Type" class="form-control" />
+                <ValidationMessage For="() => Post.Type" class="text-danger" />
+            </div>
             <div class="mb-3">
-                <label for="height" class="form-label">Height:</label> 
-                <InputNumber id="height" @bind-Value="Post.Height" class="form-control" /> 
-                <ValidationMessage For="() => Post.Height" class="text-danger" /> 
-            </div>        
+                <label for="height" class="form-label">Height:</label>
+                <InputNumber id="height" @bind-Value="Post.Height" class="form-control" />
+                <ValidationMessage For="() => Post.Height" class="text-danger" />
+            </div>
             <div class="mb-3">
-                <label for="width" class="form-label">Width:</label> 
-                <InputNumber id="width" @bind-Value="Post.Width" class="form-control" /> 
-                <ValidationMessage For="() => Post.Width" class="text-danger" /> 
-            </div>        
+                <label for="width" class="form-label">Width:</label>
+                <InputNumber id="width" @bind-Value="Post.Width" class="form-control" />
+                <ValidationMessage For="() => Post.Width" class="text-danger" />
+            </div>
             <div class="mb-3">
-                <label for="depth" class="form-label">Depth:</label> 
-                <InputNumber id="depth" @bind-Value="Post.Depth" class="form-control" /> 
-                <ValidationMessage For="() => Post.Depth" class="text-danger" /> 
-            </div>        
+                <label for="depth" class="form-label">Depth:</label>
+                <InputNumber id="depth" @bind-Value="Post.Depth" class="form-control" />
+                <ValidationMessage For="() => Post.Depth" class="text-danger" />
+            </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
     </div>
 </div>
 
 <div>
-
     <a href="/posts" class="back-list">Back to List</a>
 </div>
 
@@ -64,7 +67,6 @@
     [SupplyParameterFromForm]
     private Post Post { get; set; } = new();
 
-    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
     private async Task AddPost()
     {
         using var context = DbFactory.CreateDbContext();
@@ -74,14 +76,14 @@
     }
 }
 <style>
-     .back-list {
-         display: inline-block;
-         margin-top: 10px;
-         padding: 6px 12px;
-         background-color: #28a745; 
-         color: white;
-         text-decoration: none;
-         border-radius: 4px;
-         font-size: 14px;
-     }
+    .back-list {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 6px 12px;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 14px;
+    }
 </style>

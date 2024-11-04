@@ -1,18 +1,74 @@
-﻿@page "/counter"
+﻿@page "/Counter"
 
-<PageTitle>Counter</PageTitle>
+@inject IWebHostEnvironment WebHotEnv
 
-<h1>Counter</h1>
+<PageTitle>Home</PageTitle>
 
-<p role="status">Current count: @currentCount</p>
+<h1>Smple of how we can upload an artwork image</h1>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<div class="container d-flex">
+    <div class="col-sm-4 mx-auto">
+        <EditForm Model="fileModel" enctype="multipart/form-data" Enhance FormName="file-form" OnSubmit="HandleFileUpload">
+            <div class="mb-3">
+                <label class="form-label">Artwork Name</label>
+                <InputText @bind-Value="fileModel.Name" class="form-control" />
+            </div>
+             <div class="mb-3">
+                 <label class="form-label">Artwork</label>
+                 <InputFile name="fileModel.File" class="form-control" />
+             </div>
+             <div class="mb-3">
+                 <input type="submit" class="btn btn-sm btn-success" value="Submit"/>
+             </div>
+        </EditForm>
+         @if (!string.IsNullOrWhiteSpace(_uploadedImageUrl))
+        {
+            <img src="@_uploadedImageUrl" class="img-fluid" />
+        }
+    </div>
+</div>
 
-@code {
-    private int currentCount = 0;
+@code{
+    [SupplyParameterFromForm(FormName = "file-form")]
+    private FileModel fileModel { get; set; } = new();
 
-    private void IncrementCount()
+    private string? _uploadedImageUrl;
+
+    private static readonly HashSet<string> _imageExtension = new HashSet<string>([".jpg", ".jpeg", ".png", ".gif", ".webp"], StringComparer.OrdinalIgnoreCase);
+
+    private async Task HandleFileUpload()
     {
-        currentCount++;
+        var file = fileModel.File;
+        var folderPath = Path.Combine(WebHotEnv.WebRootPath, "uploads");
+        Directory.CreateDirectory(folderPath);
+
+        var filePath = Path.Combine(folderPath, file.FileName);
+
+        try
+        {
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                using var uploadedFileStream = file.OpenReadStream();
+                await uploadedFileStream.CopyToAsync(fileStream);
+
+                var extension = Path.GetExtension(file.FileName);
+               
+                if (_imageExtension.Contains(extension))
+                {
+                    
+                    _uploadedImageUrl = $"/uploads/{file.FileName}";                    
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    private class FileModel
+    {
+        public string Name { get; set; }
+        public IFormFile File{ get; set; }
     }
 }

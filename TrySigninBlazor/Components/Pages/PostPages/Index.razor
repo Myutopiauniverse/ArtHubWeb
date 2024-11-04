@@ -16,6 +16,7 @@
 
 
 <QuickGrid Class="table" Items="context.Post" Sortable="true">
+    <PropertyColumn Property="post => post.Id"  Sortable="true"/>
     <PropertyColumn Property="post => post.Image"/>
     <PropertyColumn Property="post => post.Name" Sortable="true" />
     <PropertyColumn Property="post => post.Type" Sortable="true" />

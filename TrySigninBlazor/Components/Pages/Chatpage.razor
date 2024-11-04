@@ -1,5 +1,101 @@
-﻿@page "/chatroom"
+@page "/chatroom"
 @inject NavigationManager navigationManager
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@using Microsoft.AspNetCore.SignalR.Client;
+@using TrySigninBlazor.Hubs
+
+<h1 class="chat-title">ArtHub Community Group Chat</h1>
+<hr />
+
+<div class="chat-container">
+    @if (!_isChatting)
+    {
+        <div class="chat-login">
+            <button type="button" @onclick="Chat" class="btn btn-primary">
+                <span class="oi oi-chat" aria-hidden="true"></span> Start Chat
+            </button>
+
+            @if (_message != null)
+            {
+                <div class="invalid-feedback">@_message</div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="chat-header">
+            <span class="oi oi-person mr-2" aria-hidden="true"></span>
+            <span>You are connected as <b>@_username</b></span>
+            <button class="btn btn-sm btn-warning ml-md-auto" @onclick="DisconnectAsync">Disconnect</button>
+        </div>
+
+        <div id="scrollbox" class="chat-messages">
+            @foreach (var item in _messages)
+            {
+                @if (item.IsNotice)
+                {
+                    <div class="alert alert-info">@item.Body</div>
+                }
+                else
+                {
+                    <div class="message @item.CSS" style="background-color:@item.Color">
+                        <div class="user">@item.Username</div>
+                        <div class="msg">@item.Body</div>
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="chat-input">
+            <textarea class="input-lg" placeholder="Enter your message" @bind="_newMessage"></textarea>
+            <button class="btn btn-primary" @onclick="() => SendAsync(_newMessage)">Send</button>
+        </div>
+    }
+</div>
+
+@code {
+    private bool _isChatting = false;
+    private string _username;
+    private string _message;
+    private string _newMessage;
+    private List<Message> _messages = new List<Message>();
+    private string _hubUrl;
+    private HubConnection _hubConnection;
+    private static readonly List<string> Colors = new List<string> { "#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#9bf6ff", "#a0c4ff", "#bdb2ff", "#ffc6ff" };
+    private static readonly Dictionary<string, string> UserColors = new Dictionary<string, string>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            _username = user.Identity.Name;
+        }
+        else
+        {
+            navigationManager.NavigateTo("/login");
+        }
+    }
+
+    public async Task Chat()
+    {
+        if (string.IsNullOrWhiteSpace(_username))
+        {
+            _message = "Unable to start chat: Username is required.";
+            return;
+        }
+
+        try
+        {
+            _isChatting = true;
+            await Task.Delay(1);
+            _messages.Clear();
+
+            string baseUrl = navigationManager.BaseUri;
+
 @using Microsoft.AspNetCore.SignalR.Client;
 @using TrySigninBlazor.Hubs
 
@@ -101,6 +197,12 @@ else
             _hubConnection.On<string, string>("Broadcast", BroadcastMessage);
 
             await _hubConnection.StartAsync();
+            await SendAsync($"{_username} joined chat room.");
+
+            if (!UserColors.ContainsKey(_username))
+            {
+                UserColors[_username] = Colors[UserColors.Count % Colors.Count];
+            }
 
             await SendAsync($"[Notice] {_username} joined chat room.");
         }
@@ -113,6 +215,13 @@ else
 
     private void BroadcastMessage(string name, string message)
     {
+        if (!UserColors.ContainsKey(name))
+        {
+            UserColors[name] = Colors[UserColors.Count % Colors.Count];
+        }
+
+        bool isMine = name.Equals(_username, StringComparison.OrdinalIgnoreCase);
+        _messages.Add(new Message(name, message, isMine, UserColors[name]));
         bool isMine = name.Equals(_username, StringComparison.OrdinalIgnoreCase);
 
         _messages.Add(new Message(name, message, isMine));
@@ -125,6 +234,9 @@ else
     {
         if (_isChatting)
         {
+            await SendAsync($"{_username} as left chat room.");
+            await _hubConnection.StopAsync();
+            await _hubConnection.DisposeAsync();
             await SendAsync($"[Notice] {_username} left chat room.");
 
             await _hubConnection.StopAsync();
@@ -141,22 +253,115 @@ else
         {
             await _hubConnection.SendAsync("Broadcast", _username, message);
 
+
             _newMessage = string.Empty;
         }
     }
 
     private class Message
     {
+        public Message(string username, string body, bool mine, string color)
         public Message(string username, string body, bool mine)
         {
             Username = username;
             Body = body;
             Mine = mine;
+            Color = color;
         }
 
         public string Username { get; set; }
         public string Body { get; set; }
         public bool Mine { get; set; }
+        public string Color { get; set; }
+        public bool IsNotice => Body.StartsWith("[Notice]");
+        public string CSS => Mine ? "sent" : "received";
+    }
+}
+
+
+<style>
+    .chat-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 1rem auto;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-title {
+        text-align: center;
+        color: #444;
+    }
+
+    .chat-login, .chat-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .chat-messages {
+        max-height: 500px;
+        overflow-y: auto;
+        padding: 10px;
+        margin-bottom: 1rem;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .message {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        border-radius: 10px;
+        margin-bottom: 0.5rem;
+        max-width: 70%;
+    }
+
+        .message.sent {
+            align-self: flex-end;
+            background-color: #d4f4dd;
+        }
+
+        .message.received {
+            align-self: flex-start;
+            background-color: #e9e9e9;
+        }
+
+    .user {
+        font-weight: bold;
+        margin-bottom: 0.2rem;
+    }
+
+    .msg {
+        line-height: 1.4;
+    }
+
+    .chat-input {
+        display: flex;
+        align-items: center;
+    }
+
+    .input-lg {
+        flex-grow: 1;
+        padding: 0.5rem;
+        margin-right: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .chat-container {
+        width: 95%;
+    }
+</style>
 
         public bool IsNotice => Body.StartsWith("[Notice]");
 
