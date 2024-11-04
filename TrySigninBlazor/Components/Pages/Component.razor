@@ -1,4 +1,4 @@
-﻿@page "/home"
+﻿@page "/300"
 @inject NavigationManager NavigationManager
 
 <PageTitle>Home</PageTitle>
@@ -14,7 +14,7 @@
     }
 
         .home-container::-webkit-scrollbar {
-            width: 15px;
+            width: 15px; 
         }
 
         .home-container::-webkit-scrollbar-track {
@@ -23,10 +23,9 @@
         }
 
         .home-container::-webkit-scrollbar-thumb {
-            background-color: #c0c0c0;
+            background-color: #c0c0c0; 
             border-radius: 15px;
             border: 2px solid #f8f9fa;
-            height: 300px;
         }
 
     .image-item {
@@ -41,26 +40,26 @@
         transition: transform 0.05s;
     }
 
-        .image-item img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-right: 20px;
-        }
+    .image-item img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-right: 20px;
+    }
 
-        .image-item .text-content {
-            display: flex;
-            flex-direction: column;
-        }
+    .image-item .text-content {
+        display: flex;
+        flex-direction: column;
+    }
 
-        .image-item p {
-            margin: 5px 0;
-        }
+    .image-item p {
+        margin: 5px 0;
+    }
 
-        .image-item:hover {
-            transform: scale(1.02);
-        }
+    .image-item:hover {
+        transform: scale(1.02);
+    }
 
     .status-tag {
         background-color: #f2f2f2;
@@ -80,8 +79,7 @@
         background-color: green;
         color: white;
     }
-
-    .status-pending {
+    .status-pending{
         background-color: darkorange;
         color: white;
     }

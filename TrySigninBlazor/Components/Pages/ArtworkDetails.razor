@@ -11,7 +11,7 @@
     {
         var artworks = new List<Artwork>
         {
-              new Artwork { Id = 1, Name = "Artwork 1", ImageUrl = "/images/image1.jpg" },
+            new Artwork { Id = 1, Name = "Artwork 1", ImageUrl = "/images/image1.jpg" },
             new Artwork { Id = 2, Name = "Artwork 2", ImageUrl = "/images/image2.jpg" },
             new Artwork { Id = 3, Name = "Artwork 3", ImageUrl = "/images/image3.jpg" },
             new Artwork { Id = 4, Name = "Artwork 4", ImageUrl = "/images/image4.jpg" },
@@ -51,8 +51,8 @@
             new Artwork { Id = 38, Name = "Artwork 38", ImageUrl = "/images/image38.jpg" },
             new Artwork { Id = 39, Name = "Artwork 39", ImageUrl = "/images/image39.jpg" },
             new Artwork { Id = 40, Name = "Artwork 40", ImageUrl = "/images/image40.jpg" },
-             new Artwork { Id = 41, Name = "Artwork 41", ImageUrl = "/images/image41.jpg" },
-              new Artwork { Id = 42, Name = "Artwork 42", ImageUrl = "/images/image45.jpg" },
+            new Artwork { Id = 41, Name = "Artwork 41", ImageUrl = "/images/image41.jpg" },
+            new Artwork { Id = 42, Name = "Artwork 42", ImageUrl = "/images/image45.jpg" },
         };
 
         SelectedArtwork = artworks.FirstOrDefault(a => a.Id == Id);
@@ -75,8 +75,8 @@
 {
     <div>
         <h2>@SelectedArtwork.Name</h2>
-        <img src="@SelectedArtwork.ImageUrl" alt="@SelectedArtwork.Name" style="max-width: 100%; height: auto;" />
-        <p>More details about the artwork...</p>
+        <img src="@SelectedArtwork.ImageUrl" alt="@SelectedArtwork.Name" style="max-width: 800px; height: 400px;" />
+        <p>There.</p>
     </div>
 }
 else

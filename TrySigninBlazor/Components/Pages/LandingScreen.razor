@@ -1,0 +1,61 @@
+﻿@page "/"
+@inject NavigationManager navMan
+@using Microsoft.AspNetCore.Authorization
+
+<CascadingAuthenticationState>
+    <AuthorizeView>
+        <NotAuthorized>
+            <div class="landing-container">
+                <div class="hero-section">
+                    <h1>Welcome to ArtHub</h1>
+                    <p class="hero-subtitle">Share your art, explore inspiring creations, and connect with a community of artists.</p>
+                    <p>
+                        <a href="/Account/Register">Join our community</a>
+                    </p>
+                </div>
+
+                <div class="about-section">
+                    <h2>About ArtHub</h2>
+                    <p>ArtHub is the platform where creativity thrives. We believe in the power of art to bring people together, inspire, and create change. Join us and discover your new favorite art community.</p>
+                </div>
+                <div class="features-section">
+                    <h2>Why Join ArtHub?</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h3>Share Your Art</h3>
+                            <p>Upload your masterpieces and showcase your unique style to the world.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Engage with Artists</h3>
+                            <p>Connect, message, and collaborate with other artists who share your passion.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Discover New Art</h3>
+                            <p>Browse a magnificent collection of artworks, updated by our community every day.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spotlight-section">
+                    <h2>Featured Artist of the Month</h2>
+                    <div class="spotlight">
+                        <img src="img/Avator.jpeg" alt="Featured Artist" class="spotlight-image" />
+                        <div class="spotlight-info">
+                            <h3>Luyanda Zondi</h3>
+                            <p>Creating surreal digital art, Luyanda Jordan pushes the boundaries of imagination. Follow and support Luyanda’s journey on ArtHub.</p>
+                            <button class="secondary-button">View Luyanda's Gallery</button>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="footer">
+                    <p>© 2024 ArtHub. All Rights Reserved. | Follow us on social media for the latest updates.</p>
+                </footer>
+            </div>
+
+        </NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
+@code {
+
+}
