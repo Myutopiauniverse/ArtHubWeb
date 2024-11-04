@@ -1,0 +1,108 @@
+﻿@page "/explorer"
+@inject NavigationManager NavigationManager
+
+<PageTitle>Explorer</PageTitle>
+
+<style>
+    .explorer-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        overflow-y: auto;
+        max-height: 80vh;
+        padding: 20px;
+    }
+    .image-item {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+    }
+    .image-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image-item:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+<h1>Explore Artworks</h1>
+<div class="explorer-container">
+    @foreach (var artwork in Artworks)
+    {
+        <div class="image-item" @onclick="() => NavigateToArtwork(artwork.Id)">
+            <img src="@artwork.ImageUrl" alt="@artwork.Name" />
+        </div>
+    }
+</div>
+
+@code {
+    private List<Artwork> Artworks { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        Artworks = new List<Artwork>
+        {
+             new Artwork { Id = 1, Name = "Artwork 1", ImageUrl = "/images/image1.jpg" },
+            new Artwork { Id = 2, Name = "Artwork 2", ImageUrl = "/images/image2.jpg" },
+            new Artwork { Id = 3, Name = "Artwork 3", ImageUrl = "/images/image3.jpg" },
+            new Artwork { Id = 4, Name = "Artwork 4", ImageUrl = "/images/image4.jpg" },
+            new Artwork { Id = 5, Name = "Artwork 5", ImageUrl = "/images/image5.jpg" },
+            new Artwork { Id = 6, Name = "Artwork 6", ImageUrl = "/images/image6.jpg" },
+            new Artwork { Id = 7, Name = "Artwork 7", ImageUrl = "/images/image7.jpg" },
+            new Artwork { Id = 8, Name = "Artwork 8", ImageUrl = "/images/image8.jpg" },
+            new Artwork { Id = 9, Name = "Artwork 9", ImageUrl = "/images/image9.jpg" },
+            new Artwork { Id = 10, Name = "Artwork 10", ImageUrl = "/images/image10.jpg" },
+            new Artwork { Id = 11, Name = "Artwork 11", ImageUrl = "/images/image11.jpg" },
+            new Artwork { Id = 12, Name = "Artwork 12", ImageUrl = "/images/image12.jpg" },
+            new Artwork { Id = 13, Name = "Artwork 13", ImageUrl = "/images/image13.jpg" },
+            new Artwork { Id = 14, Name = "Artwork 14", ImageUrl = "/images/image14.jpg" },
+            new Artwork { Id = 15, Name = "Artwork 15", ImageUrl = "/images/image15.jpg" },
+            new Artwork { Id = 16, Name = "Artwork 16", ImageUrl = "/images/image16.jpg" },
+            new Artwork { Id = 17, Name = "Artwork 17", ImageUrl = "/images/image17.jpg" },
+            new Artwork { Id = 18, Name = "Artwork 18", ImageUrl = "/images/image18.jpg" },
+            new Artwork { Id = 19, Name = "Artwork 19", ImageUrl = "/images/image19.jpg" },
+            new Artwork { Id = 20, Name = "Artwork 20", ImageUrl = "/images/image20.jpg" },
+            new Artwork { Id = 21, Name = "Artwork 21", ImageUrl = "/images/image21.jpg" },
+            new Artwork { Id = 22, Name = "Artwork 22", ImageUrl = "/images/image22.jpg" },
+            new Artwork { Id = 23, Name = "Artwork 23", ImageUrl = "/images/image23.jpg" },
+            new Artwork { Id = 24, Name = "Artwork 24", ImageUrl = "/images/image24.jpg" },
+            new Artwork { Id = 25, Name = "Artwork 25", ImageUrl = "/images/image25.jpg" },
+            new Artwork { Id = 26, Name = "Artwork 26", ImageUrl = "/images/image26.jpg" },
+            new Artwork { Id = 27, Name = "Artwork 27", ImageUrl = "/images/image27.jpg" },
+            new Artwork { Id = 28, Name = "Artwork 28", ImageUrl = "/images/image28.jpg" },
+            new Artwork { Id = 29, Name = "Artwork 29", ImageUrl = "/images/image29.jpg" },
+            new Artwork { Id = 30, Name = "Artwork 30", ImageUrl = "/images/image30.jpg" },
+            new Artwork { Id = 31, Name = "Artwork 31", ImageUrl = "/images/image31.jpg" },
+            new Artwork { Id = 32, Name = "Artwork 32", ImageUrl = "/images/image32.jpg" },
+            new Artwork { Id = 33, Name = "Artwork 33", ImageUrl = "/images/image33.jpg" },
+            new Artwork { Id = 34, Name = "Artwork 34", ImageUrl = "/images/image34.jpg" },
+            new Artwork { Id = 35, Name = "Artwork 35", ImageUrl = "/images/image35.jpg" },
+            new Artwork { Id = 36, Name = "Artwork 36", ImageUrl = "/images/image36.jpg" },
+            new Artwork { Id = 37, Name = "Artwork 37", ImageUrl = "/images/image37.jpg" },
+            new Artwork { Id = 38, Name = "Artwork 38", ImageUrl = "/images/image38.jpg" },
+            new Artwork { Id = 39, Name = "Artwork 39", ImageUrl = "/images/image39.jpg" },
+            new Artwork { Id = 40, Name = "Artwork 40", ImageUrl = "/images/image40.jpg" },
+             new Artwork { Id = 41, Name = "Artwork 41", ImageUrl = "/images/image41.jpg" },
+              new Artwork { Id = 42, Name = "Artwork 42", ImageUrl = "/images/image45.jpg" },
+        };
+    }
+
+    private void NavigateToArtwork(int artworkId)
+    {
+        NavigationManager.NavigateTo($"/artwork/{artworkId}");
+    }
+
+    private class Artwork
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
+    }
+}
