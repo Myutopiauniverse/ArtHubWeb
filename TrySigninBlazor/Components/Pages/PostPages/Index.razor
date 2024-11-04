@@ -2,7 +2,6 @@
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using TrySigninBlazor.Data
-@using TrySigninBlazor.Data
 @implements IAsyncDisposable
 @inject IDbContextFactory<TrySigninBlazor.Data.TrySigninBlazorContext> DbFactory
 
@@ -11,21 +10,24 @@
 <h1>Index</h1>
 
 <p>
-    <a href="posts/create">Create New</a>
+    <a href="posts/create" class="create-link">Create New</a>
 </p>
 
-<QuickGrid Class="table" Items="context.Post">
-    <PropertyColumn Property="post => post.Image" />
-    <PropertyColumn Property="post => post.Name" />
-    <PropertyColumn Property="post => post.Type" />
-    <PropertyColumn Property="post => post.Height" />
-    <PropertyColumn Property="post => post.Width" />
-    <PropertyColumn Property="post => post.Depth" />
+
+
+<QuickGrid Class="table" Items="context.Post" Sortable="true">
+    <PropertyColumn Property="post => post.Image"/>
+    <PropertyColumn Property="post => post.Name" Sortable="true" />
+    <PropertyColumn Property="post => post.Type" Sortable="true" />
+    <PropertyColumn Property="post => post.Height" Sortable="true"/>
+    <PropertyColumn Property="post => post.Width" Sortable="true"/>
+    <PropertyColumn Property="post => post.Depth" Sortable="true"/>
+
 
     <TemplateColumn Context="post">
-        <a href="@($"posts/edit?id={post.Id}")">Edit</a> |
-        <a href="@($"posts/details?id={post.Id}")">Details</a> |
-        <a href="@($"posts/delete?id={post.Id}")">Delete</a>
+        <a href="@($"posts/edit?id={post.Id}")" class="edit-link">Edit</a> |
+        <a href="@($"posts/details?id={post.Id}")" class="details-link">Details</a> |
+        <a href="@($"posts/delete?id={post.Id}")"class="delete-link">Delete</a>
     </TemplateColumn>
 </QuickGrid>
 
@@ -39,3 +41,62 @@
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
 }
+
+<style>
+     .create-link {
+         display: inline-block;
+         margin-top: 10px;
+         padding: 6px 12px;
+         background-color: #28a745;
+         color: white;
+         text-decoration: none;
+         border-radius: 4px;
+         font-size: 14px;
+     }
+
+     .edit-link {
+         display: inline-block;
+         margin-top: 10px;
+         padding: 6px 12px;
+         background-color: #1E90FF; 
+         color: white;
+         text-decoration: none;
+         border-radius: 4px;
+         font-size: 14px;
+     }
+
+         .edit-link:hover {
+             background-color: #1C86EE;
+         }
+
+     .details-link {
+         display: inline-block;
+         margin-top: 10px;
+         padding: 6px 12px;
+         background-color: #5A5A5A; 
+         color: white;
+         text-decoration: none;
+         border-radius: 4px;
+         font-size: 14px;
+     }
+
+         .details-link:hover {
+             background-color: #4C4C4C;
+         }
+
+     .delete-link {
+         display: inline-block;
+         margin-top: 10px;
+         padding: 6px 12px;
+         background-color: #d9534f;
+         color: white;
+         text-decoration: none;
+         border-radius: 4px;
+         font-size: 14px;
+     }
+
+         .delete-link:hover {
+             background-color: #c9302c;
+         }
+</style>
+

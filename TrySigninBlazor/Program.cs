@@ -5,6 +5,7 @@ using TrySigninBlazor.Components;
 using TrySigninBlazor.Components.Account;
 using TrySigninBlazor.Data;
 using Microsoft.Extensions.DependencyInjection;
+using TrySigninBlazor.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContextFactory<TrySigninBlazorContext>(options =>
@@ -56,12 +57,17 @@ else
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseStaticFiles();
+app.UseRouting();
 app.UseAntiforgery();
 
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+app.UseEndpoints(endpoints =>
+{
+    _ = endpoints.MapRazorComponents<App>().AddInteractiveServerRenderMode();
+    _ = endpoints.MapHub<BlazorChatSampleHub>(BlazorChatSampleHub.HubUrl);
+});
 
 // Add additional endpoints required by the Identity /Account Razor components.
 app.MapAdditionalIdentityEndpoints();
