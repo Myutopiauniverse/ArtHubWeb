@@ -1,109 +1,116 @@
 ﻿@page "/home"
 @inject NavigationManager NavigationManager
 
-<PageTitle>Home</PageTitle>
 
-<style>
-    .home-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        overflow-y: auto;
-        max-height: 90vh;
-        padding: 20px;
-    }
+ <CascadingAuthenticationState>
+        <AuthorizeView>
+        <Authorized>
+            <PageTitle>Home</PageTitle>
+            <style>
+                .home-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    overflow-y: auto;
+                    max-height: 90vh;
+                    padding: 20px;
+                }
 
-        .home-container::-webkit-scrollbar {
-            width: 15px;
-        }
+                    .home-container::-webkit-scrollbar {
+                        width: 15px;
+                    }
 
-        .home-container::-webkit-scrollbar-track {
-            background: #e0e0e0;
-            border-radius: 15px;
-        }
+                    .home-container::-webkit-scrollbar-track {
+                        background: #e0e0e0;
+                        border-radius: 15px;
+                    }
 
-        .home-container::-webkit-scrollbar-thumb {
-            background-color: #c0c0c0;
-            border-radius: 15px;
-            border: 2px solid #f8f9fa;
-            height: 300px;
-        }
+                    .home-container::-webkit-scrollbar-thumb {
+                        background-color: #c0c0c0;
+                        border-radius: 15px;
+                        border: 2px solid #f8f9fa;
+                        height: 300px;
+                    }
 
-    .image-item {
-        display: flex;
-        align-items: flex-start;
-        padding: 15px;
-        width: 1500px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        transition: transform 0.05s;
-    }
+                .image-item {
+                    display: flex;
+                    align-items: flex-start;
+                    padding: 15px;
+                    width: 1500px;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    cursor: pointer;
+                    transition: transform 0.05s;
+                }
 
-        .image-item img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-right: 20px;
-        }
+                    .image-item img {
+                        width: 150px;
+                        height: 150px;
+                        object-fit: cover;
+                        border-radius: 4px;
+                        margin-right: 20px;
+                    }
 
-        .image-item .text-content {
-            display: flex;
-            flex-direction: column;
-        }
+                    .image-item .text-content {
+                        display: flex;
+                        flex-direction: column;
+                    }
 
-        .image-item p {
-            margin: 5px 0;
-        }
+                    .image-item p {
+                        margin: 5px 0;
+                    }
 
-        .image-item:hover {
-            transform: scale(1.02);
-        }
+                    .image-item:hover {
+                        transform: scale(1.02);
+                    }
 
-    .status-tag {
-        background-color: #f2f2f2;
-        color: #000;
-        padding: 5px 10px;
-        border-radius: 12px;
-        font-weight: bold;
-        align-self: flex-start;
-    }
+                .status-tag {
+                    background-color: #f2f2f2;
+                    color: #000;
+                    padding: 5px 10px;
+                    border-radius: 12px;
+                    font-weight: bold;
+                    align-self: flex-start;
+                }
 
-    .status-sold {
-        background-color: red;
-        color: white;
-    }
+                .status-sold {
+                    background-color: red;
+                    color: white;
+                }
 
-    .status-bid {
-        background-color: green;
-        color: white;
-    }
+                .status-bid {
+                    background-color: green;
+                    color: white;
+                }
 
-    .status-pending {
-        background-color: darkorange;
-        color: white;
-    }
-</style>
+                .status-pending {
+                    background-color: darkorange;
+                    color: white;
+                }
+            </style>
 
-<div class="home-container">
-    @foreach (var artwork in Artworks)
-    {
-        <div class="image-item" @onclick="() => NavigateToArtwork(artwork.Id)">
-            <img src="@artwork.ImageUrl" alt="@artwork.Name" />
-            <div class="text-content">
-                <p><strong>@artwork.Name</strong></p>
-                <p>@artwork.Medium</p>
-                <p>@artwork.Description</p>
-                <p class="status-tag @(artwork.Status == "SOLD" ? "status-sold" : artwork.Status == "PENDING" ? "status-pending" : "status-bid")">
-                    @artwork.Status
-                </p>
+            <div class="home-container">
+                @foreach (var artwork in Artworks)
+                {
+                    <div class="image-item" @onclick="() => NavigateToArtwork(artwork.Id)">
+                        <img src="@artwork.ImageUrl" alt="@artwork.Name" />
+                        <div class="text-content">
+                            <p><strong>@artwork.Name</strong></p>
+                            <p>@artwork.Medium</p>
+                            <p>@artwork.Description</p>
+                            <p class="status-tag @(artwork.Status == "SOLD" ? "status-sold" : artwork.Status == "PENDING" ? "status-pending" : "status-bid")">
+                                @artwork.Status
+                            </p>
+                        </div>
+                    </div>
+                }
             </div>
-        </div>
-    }
-</div>
 
+
+            </Authorized>
+        </AuthorizeView>
+</CascadingAuthenticationState>
 
 @code {
     private List<Artwork> Artworks { get; set; } = new();
@@ -153,7 +160,7 @@
     new Artwork { Id = 39, Name = "Winter's Embrace", ImageUrl = "/images/image39.jpg", Medium = "Pastel on Paper", Description = "Snow-laden trees under a pale winter sky, capturing the serene and quiet beauty of the season.", Status = "R95 000" },
     new Artwork { Id = 40, Name = "City Reflections", ImageUrl = "/images/image40.jpg", Medium = "Digital Art", Description = "A modern cityscape reflected in water, with shimmering lights creating a mesmerizing effect.", Status = "DM FOR BID" },
     new Artwork { Id = 41, Name = "Vibrant Fields", ImageUrl = "/images/image41.jpg", Medium = "Acrylic Paint", Description = "An explosion of color in a field of wildflowers, celebrating the joy of spring in full bloom.", Status = "R10 000" },
-    // new Artwork { Id = 42, Name = "The Forgotten Grove", ImageUrl = "/images/image45.jpg", Medium = "Oil on Canvas", Description = "A hidden grove deep within an old forest, painted in soft greens and browns to evoke a sense of mystery.", Status = "SOLD" },
+     new Artwork { Id = 42, Name = "The Forgotten Grove", ImageUrl = "/images/image45.jpg", Medium = "Oil on Canvas", Description = "A hidden grove deep within an old forest, painted in soft greens and browns to evoke a sense of mystery.", Status = "SOLD" },
     // new Artwork { Id = 43, Name = "Sea of Tranquility", ImageUrl = "/images/image43.jpg", Medium = "Watercolor", Description = "A calm sea stretching into the horizon, with gentle waves lapping against the shore.", Status = "R13 000" },
     // new Artwork { Id = 44, Name = "Reflections of Gold", ImageUrl = "/images/image44.jpg", Medium = "Mixed Media", Description = "A golden forest scene where autumn leaves reflect the light in shades of yellow and orange.", Status = "DM FOR BID" },
     // new Artwork { Id = 45, Name = "Eternal Flame", ImageUrl = "/images/image45.jpg", Medium = "Acrylic on Canvas", Description = "A powerful, abstract interpretation of fire and passion, with bold strokes of red and orange.", Status = "PENDING ORDER" },

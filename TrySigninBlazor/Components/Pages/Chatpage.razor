@@ -3,55 +3,63 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @using Microsoft.AspNetCore.SignalR.Client;
 @using TrySigninBlazor.Hubs
+@inject NavigationManager NavigationManager
 
-<h1 class="chat-title">ArtHub Community Group Chat</h1>
-<hr />
 
-<div class="chat-container">
-    @if (!_isChatting)
-    {
-        <div class="chat-login">
-            <button type="button" @onclick="Chat" class="btn btn-primary">
-                <span class="oi oi-chat" aria-hidden="true"></span> Start Chat
-            </button>
+ <CascadingAuthenticationState>
+        <AuthorizeView>
+        <Authorized>
+            <h1 class="chat-title">ArtHub Community Group Chat</h1>
+            <hr />
 
-            @if (_message != null)
-            {
-                <div class="invalid-feedback">@_message</div>
-            }
-        </div>
-    }
-    else
-    {
-        <div class="chat-header">
-            <span class="oi oi-person mr-2" aria-hidden="true"></span>
-            <span>You are connected as <b>@_username</b></span>
-            <button class="btn btn-sm btn-warning ml-md-auto" @onclick="DisconnectAsync">Disconnect</button>
-        </div>
-
-        <div id="scrollbox" class="chat-messages">
-            @foreach (var item in _messages)
-            {
-                @if (item.IsNotice)
+            <div class="chat-container">
+                @if (!_isChatting)
                 {
-                    <div class="alert alert-info">@item.Body</div>
+                    <div class="chat-login">
+                        <button type="button" @onclick="Chat" class="btn btn-primary">
+                            <span class="oi oi-chat" aria-hidden="true"></span> Start Chat
+                        </button>
+
+                        @if (_message != null)
+                        {
+                            <div class="invalid-feedback">@_message</div>
+                        }
+                    </div>
                 }
                 else
                 {
-                    <div class="message @item.CSS" style="background-color:@item.Color">
-                        <div class="user">@item.Username</div>
-                        <div class="msg">@item.Body</div>
+                    <div class="chat-header">
+                        <span class="oi oi-person mr-2" aria-hidden="true"></span>
+                        <span>You are connected as <b>@_username</b></span>
+                        <button class="btn btn-sm btn-warning ml-md-auto" @onclick="DisconnectAsync">Disconnect</button>
+                    </div>
+
+                    <div id="scrollbox" class="chat-messages">
+                        @foreach (var item in _messages)
+                        {
+                            @if (item.IsNotice)
+                            {
+                                <div class="alert alert-info">@item.Body</div>
+                            }
+                            else
+                            {
+                                <div class="message @item.CSS" style="background-color:@item.Color">
+                                    <div class="user">@item.Username</div>
+                                    <div class="msg">@item.Body</div>
+                                </div>
+                            }
+                        }
+                    </div>
+
+                    <div class="chat-input">
+                        <textarea class="input-lg" placeholder="Enter your message" @bind="_newMessage"></textarea>
+                        <button class="btn btn-primary" @onclick="() => SendAsync(_newMessage)">Send</button>
                     </div>
                 }
-            }
-        </div>
-
-        <div class="chat-input">
-            <textarea class="input-lg" placeholder="Enter your message" @bind="_newMessage"></textarea>
-            <button class="btn btn-primary" @onclick="() => SendAsync(_newMessage)">Send</button>
-        </div>
-    }
-</div>
+            </div>
+        </Authorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
 
 @code {
     private bool _isChatting = false;
@@ -78,7 +86,10 @@
             navigationManager.NavigateTo("/login");
         }
     }
-
+    protected override void OnInitialized()
+    {
+        NavigationManager.NavigateTo("/login"); // Redirect to login page
+    }
     public async Task Chat()
     {
         if (string.IsNullOrWhiteSpace(_username))

@@ -1,85 +1,305 @@
 ﻿@page "/artwork/{id:int}"
 @inject NavigationManager NavigationManager
 
+
+ <CascadingAuthenticationState>
+        <AuthorizeView>
+        <Authorized>
+            <PageTitle>Artwork Details</PageTitle>
+
+            <div class="details-container">
+                <div class="artwork-header">
+                    <img src="@Artwork.ImageUrl" alt="@Artwork.Name" />
+                    <div class="artwork-info">
+                        <h2>@Artwork.Name</h2>
+                        <p>@Artwork.Medium</p>
+                        <p>@Artwork.Description</p>
+                        <p class="status-tag @(Artwork.Status == "SOLD" ? "status-sold" : Artwork.Status == "PENDING" ? "status-pending" : "status-bid")">
+                            @Artwork.Status
+                        </p>
+                        <div class="author-info">
+                            <div class="profile-pic"></div>
+                            <span>@Artwork.Author</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="similar-section">
+                    <h3>Similar Artworks</h3>
+                    <div class="similar-artworks">
+                        @foreach (var similarArtwork in SimilarArtworks)
+                        {
+                            <div class="similar-artwork-item" @onclick="() => NavigateToArtwork(similarArtwork.Id)">
+                                <img src="@similarArtwork.ImageUrl" alt="@similarArtwork.Name" />
+                                <p>@similarArtwork.Name</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </Authorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
+
 @code {
     [Parameter]
-    public int Id { get; set; }
+    public int id { get; set; }
 
-    private Artwork? SelectedArtwork;
-
+    private ArtworkItem Artwork { get; set; } = new();
+    private List<ArtworkItem> SimilarArtworks { get; set; } = new();
     protected override void OnInitialized()
     {
-        var artworks = new List<Artwork>
-        {
-            new Artwork { Id = 1, Name = "Artwork 1", ImageUrl = "/images/image1.jpg" },
-            new Artwork { Id = 2, Name = "Artwork 2", ImageUrl = "/images/image2.jpg" },
-            new Artwork { Id = 3, Name = "Artwork 3", ImageUrl = "/images/image3.jpg" },
-            new Artwork { Id = 4, Name = "Artwork 4", ImageUrl = "/images/image4.jpg" },
-            new Artwork { Id = 5, Name = "Artwork 5", ImageUrl = "/images/image5.jpg" },
-            new Artwork { Id = 6, Name = "Artwork 6", ImageUrl = "/images/image6.jpg" },
-            new Artwork { Id = 7, Name = "Artwork 7", ImageUrl = "/images/image7.jpg" },
-            new Artwork { Id = 8, Name = "Artwork 8", ImageUrl = "/images/image8.jpg" },
-            new Artwork { Id = 9, Name = "Artwork 9", ImageUrl = "/images/image9.jpg" },
-            new Artwork { Id = 10, Name = "Artwork 10", ImageUrl = "/images/image10.jpg" },
-            new Artwork { Id = 11, Name = "Artwork 11", ImageUrl = "/images/image11.jpg" },
-            new Artwork { Id = 12, Name = "Artwork 12", ImageUrl = "/images/image12.jpg" },
-            new Artwork { Id = 13, Name = "Artwork 13", ImageUrl = "/images/image13.jpg" },
-            new Artwork { Id = 14, Name = "Artwork 14", ImageUrl = "/images/image14.jpg" },
-            new Artwork { Id = 15, Name = "Artwork 15", ImageUrl = "/images/image15.jpg" },
-            new Artwork { Id = 16, Name = "Artwork 16", ImageUrl = "/images/image16.jpg" },
-            new Artwork { Id = 17, Name = "Artwork 17", ImageUrl = "/images/image17.jpg" },
-            new Artwork { Id = 18, Name = "Artwork 18", ImageUrl = "/images/image18.jpg" },
-            new Artwork { Id = 19, Name = "Artwork 19", ImageUrl = "/images/image19.jpg" },
-            new Artwork { Id = 20, Name = "Artwork 20", ImageUrl = "/images/image20.jpg" },
-            new Artwork { Id = 21, Name = "Artwork 21", ImageUrl = "/images/image21.jpg" },
-            new Artwork { Id = 22, Name = "Artwork 22", ImageUrl = "/images/image22.jpg" },
-            new Artwork { Id = 23, Name = "Artwork 23", ImageUrl = "/images/image23.jpg" },
-            new Artwork { Id = 24, Name = "Artwork 24", ImageUrl = "/images/image24.jpg" },
-            new Artwork { Id = 25, Name = "Artwork 25", ImageUrl = "/images/image25.jpg" },
-            new Artwork { Id = 26, Name = "Artwork 26", ImageUrl = "/images/image26.jpg" },
-            new Artwork { Id = 27, Name = "Artwork 27", ImageUrl = "/images/image27.jpg" },
-            new Artwork { Id = 28, Name = "Artwork 28", ImageUrl = "/images/image28.jpg" },
-            new Artwork { Id = 29, Name = "Artwork 29", ImageUrl = "/images/image29.jpg" },
-            new Artwork { Id = 30, Name = "Artwork 30", ImageUrl = "/images/image30.jpg" },
-            new Artwork { Id = 31, Name = "Artwork 31", ImageUrl = "/images/image31.jpg" },
-            new Artwork { Id = 32, Name = "Artwork 32", ImageUrl = "/images/image32.jpg" },
-            new Artwork { Id = 33, Name = "Artwork 33", ImageUrl = "/images/image33.jpg" },
-            new Artwork { Id = 34, Name = "Artwork 34", ImageUrl = "/images/image34.jpg" },
-            new Artwork { Id = 35, Name = "Artwork 35", ImageUrl = "/images/image35.jpg" },
-            new Artwork { Id = 36, Name = "Artwork 36", ImageUrl = "/images/image36.jpg" },
-            new Artwork { Id = 37, Name = "Artwork 37", ImageUrl = "/images/image37.jpg" },
-            new Artwork { Id = 38, Name = "Artwork 38", ImageUrl = "/images/image38.jpg" },
-            new Artwork { Id = 39, Name = "Artwork 39", ImageUrl = "/images/image39.jpg" },
-            new Artwork { Id = 40, Name = "Artwork 40", ImageUrl = "/images/image40.jpg" },
-            new Artwork { Id = 41, Name = "Artwork 41", ImageUrl = "/images/image41.jpg" },
-            new Artwork { Id = 42, Name = "Artwork 42", ImageUrl = "/images/image45.jpg" },
-        };
+        NavigationManager.NavigateTo("/login"); // Redirect to login page
+    }
+    protected override void OnParametersSet()
+    {
+        Artwork = Artworks.FirstOrDefault(a => a.Id == id) ?? new ArtworkItem
+            {
+                Name = "Artwork Not Found",
+                Medium = "N/A",
+                Description = "This artwork could not be found.",
+                Status = "N/A",
+                Author = "Unknown",
+                ImageUrl = "/img/NoAccess.jpg"
+            };
 
-        SelectedArtwork = artworks.FirstOrDefault(a => a.Id == Id);
-
-        if (SelectedArtwork == null)
-        {
-            NavigationManager.NavigateTo("/explorer");
-        }
+        var random = new Random();
+        SimilarArtworks = Artworks
+            .Where(a => a.Id != id)
+            .OrderBy(_ => random.Next())
+            .Take(8)
+            .ToList();
     }
 
-    private class Artwork
+    private void NavigateToArtwork(int artworkId)
+    {
+        NavigationManager.NavigateTo($"/artwork/{artworkId}");
+    }
+
+    private List<ArtworkItem> Artworks { get; set; } = new List<ArtworkItem>
+    {
+        new ArtworkItem { Id = 1, Name = "Sunfire", ImageUrl = "/images/image1.jpg", Medium = "Watercolor", Description = "In this forceful, evocative painting, a group of Brazilian freedom fighters is shown meeting in a secluded tropical forest. The warm, earthy colors of the forest are interwoven with fiery reds and oranges to convey resilience and determination. Created during World War II, this piece symbolically portrays the hidden struggle for independence under oppressive conditions. The blend of lush greens and subdued browns creates a sense of unity between the fighters and their environment. This painting captures a fleeting moment of courage, painted as a testament to the quiet resistance in Brazil’s jungles.", Status = "SOLD" },
+    new ArtworkItem { Id = 2, Name = "The Silent Shore (1944)", ImageUrl = "/images/image2.jpg", Medium = "Acrylic Paint", Description = "This piece captures the stillness of nature through a sweeping, serene landscape along a winding river. Towering, muted mountains provide a powerful backdrop, their reflections glistening softly in the water below. Painted with a careful eye for detail, the scene speaks to the timeless patience of nature. The painting’s palette of earthy browns and cool blues brings the viewer into a quiet, introspective space, inviting them to experience the peaceful isolation of the shore. It’s a meditation on tranquility, capturing a place undisturbed by human touch.", Status = "R14 000" },
+    new ArtworkItem { Id = 3, Name = "Whispers of the Baobab", ImageUrl = "/images/image3.jpg", Medium = "Gouache", Description = "Over the bushland of Africa rises a single baobab, its root as old as that of the forgotten warrior tribe that once defended this land from colonial forces.", Status = "DM FOR BID" },
+    new ArtworkItem { Id = 4, Name = "Storm over the Valley", ImageUrl = "/images/image4.jpg", Medium = "Oil on Canvas", Description = "At the heart of a sprawling African bushland, a majestic baobab tree stands alone, its gnarled roots as old as the land itself. This artwork celebrates the strength and resilience of African landscapes, symbolized by the ancient tree, often revered in folklore and mythology. The tree’s branches twist upward, forming silhouettes against the evening sky, bathed in golden hues. Painted in rich, earthy tones, the work conveys whispers of history and heritage carried by the wind. The baobab’s enduring form reminds viewers of stories told and untold within the continent’s heart.", Status = "PENDING" },
+    new ArtworkItem { Id = 5, Name = "Dance of the Lilies", ImageUrl = "/images/image5.jpg", Medium = "Acrylic on Panel", Description = "This artwork takes viewers to a shimmering, dreamlike water scene, where a tranquil mountain reflects in the mirrored lake below. Soft, warm tones blend seamlessly with cooler hues, creating a balance between earth’s solidity and nature’s fluid grace. Painted with gentle brushstrokes, the work captures the mountain’s serene dominance over its surroundings. The mountain and lake become one, embodying both stillness and depth. It’s a scene that invites contemplation, evoking a sense of calm and reverence for the natural world’s silent beauty.", Status = "R18 000" },
+    new ArtworkItem { Id = 6, Name = "Midnight City Lights", ImageUrl = "/images/image6.jpg", Medium = "Digital Art", Description = "The bustling energy of a city at midnight captured with neon lights and blurred headlights.", Status = "DM FOR BID" },
+    new ArtworkItem { Id = 7, Name = "Echoes of Silence", ImageUrl = "/images/image7.jpg", Medium = "Ink on Paper", Description = "An abstract depiction of sound and silence clashing, using bold strokes and empty spaces to represent auditory voids.", Status = "PENDING" },
+    new ArtworkItem { Id = 8, Name = "Flight of the Phoenix", ImageUrl = "/images/image8.jpg", Medium = "Mixed Media", Description = "A phoenix rising from a bed of ashes, symbolizing hope and rebirth in vibrant colors and textures.", Status = "SOLD" },
+    new ArtworkItem { Id = 9, Name = "Harvest Moon", ImageUrl = "/images/image9.jpg", Medium = "Pastel on Paper", Description = "Soft, warm tones depict a golden autumn landscape under the glow of a large harvest moon.", Status = "R10 500" },
+    new ArtworkItem { Id = 10, Name = "Crystal Waters", ImageUrl = "/images/image10.jpg", Medium = "Watercolor", Description = "An ocean scene with crystal-clear waves rolling gently towards the shore under a cloudless sky.", Status = "DM FOR BID" },
+    new ArtworkItem { Id = 11, Name = "Sunset Symphony", ImageUrl = "/images/image11.jpg", Medium = "Oil on Canvas", Description = "A symphony of colors as the sun sets over a tranquil lake, reflecting warm hues onto still waters.", Status = "R20 000" },
+    new ArtworkItem { Id = 12, Name = "Desert Mirage", ImageUrl = "/images/image12.jpg", Medium = "Acrylic on Canvas", Description = "A surreal desert landscape, with mirages of water and distant mountains under a blazing sun.", Status = "PENDING" },
+    new ArtworkItem { Id = 13, Name = "Serenity in Bloom", ImageUrl = "/images/image13.jpg", Medium = "Gouache", Description = "A detailed close-up of delicate wildflowers in bloom, showcasing the beauty of nature’s intricacies.", Status = "R7 500" },
+    new ArtworkItem { Id = 14, Name = "Waves of Freedom", ImageUrl = "/images/image14.jpg", Medium = "Oil on Canvas", Description = "This artwork takes viewers to a shimmering, dreamlike water scene, where a tranquil mountain reflects in the mirrored lake below. Soft, warm tones blend seamlessly with cooler hues, creating a balance between earth’s solidity and nature’s fluid grace. Painted with gentle brushstrokes, the work captures the mountain’s serene dominance over its surroundings. The mountain and lake become one, embodying both stillness and depth. It’s a scene that invites contemplation, evoking a sense of calm and reverence for the natural world’s silent beauty.", Status = "DM FOR BID" },
+    new ArtworkItem { Id = 15, Name = "Forest Whispers", ImageUrl = "/images/image15.jpg", Medium = "Pastel on Paper", Description = "A tranquil forest scene with soft beams of sunlight filtering through the trees, hinting at the mysteries within.", Status = "R12 000" },
+    new ArtworkItem { Id = 16, Name = "Ancient Sands", ImageUrl = "/images/image16.jpg", Medium = "Mixed Media", Description = "This artwork takes viewers to a shimmering, dreamlike water scene, where a tranquil mountain reflects in the mirrored lake below. Soft, warm tones blend seamlessly with cooler hues, creating a balance between earth’s solidity and nature’s fluid grace. Painted with gentle brushstrokes, the work captures the mountain’s serene dominance over its surroundings. The mountain and lake become one, embodying both stillness and depth. It’s a scene that invites contemplation, evoking a sense of calm and reverence for the natural world’s silent beauty.", Status = "SOLD" },
+    new ArtworkItem { Id = 17, Name = "Golden Fields", ImageUrl = "/images/image17.jpg", Medium = "Watercolor", Description = "Golden wheat fields swaying gently in the breeze, capturing the essence of a peaceful countryside.", Status = "DM FOR BID" },
+    new ArtworkItem { Id = 18, Name = "Dreams of the Cosmos", ImageUrl = "/images/image18.jpg", Medium = "Digital Art", Description = "An abstract representation of outer space, with swirling galaxies and stars in rich, dark hues.", Status = "R22 000" },
+    new ArtworkItem { Id = 19, Name = "Twilight Reflections", ImageUrl = "/images/image19.jpg", Medium = "Acrylic on Canvas", Description = "A quiet lake reflecting the colors of twilight, blending soft pinks, purples, and blues.", Status = "DM FOR BID" },
+    new ArtworkItem { Id = 20, Name = "Mountain Majesty", ImageUrl = "/images/image20.jpg", Medium = "Oil on Canvas", Description = "This artwork takes viewers to a shimmering, dreamlike water scene, where a tranquil mountain reflects in the mirrored lake below. Soft, warm tones blend seamlessly with cooler hues, creating a balance between earth’s solidity and nature’s fluid grace. Painted with gentle brushstrokes, the work captures the mountain’s serene dominance over its surroundings. The mountain and lake become one, embodying both stillness and depth. It’s a scene that invites contemplation, evoking a sense of calm and reverence for the natural world’s silent beauty.", Status = "R150 000" },
+    new ArtworkItem { Id = 21, Name = "Metropolitan Maze", ImageUrl = "/images/image21.jpg", Medium = "Ink on Paper", Description = "A complex, intricate design representing the chaotic yet structured flow of a bustling city.", Status = "SOLD" },
+    new ArtworkItem { Id = 22, Name = "Oasis of Calm", ImageUrl = "/images/image22.jpg", Medium = "Watercolor", Description = "A serene oasis surrounded by desert, where cool blue waters meet arid, sandy terrain.", Status = "DM FOR BID" },
+    new ArtworkItem { Id = 23, Name = "Fires of Creation", ImageUrl = "/images/image23.jpg", Medium = "Mixed Media", Description = "This artwork takes viewers to a shimmering, dreamlike water scene, where a tranquil mountain reflects in the mirrored lake below. Soft, warm tones blend seamlessly with cooler hues, creating a balance between earth’s solidity and nature’s fluid grace. Painted with gentle brushstrokes, the work captures the mountain’s serene dominance over its surroundings. The mountain and lake become one, embodying both stillness and depth. It’s a scene that invites contemplation, evoking a sense of calm and reverence for the natural world’s silent beauty.", Status = "PENDING" },
+    new ArtworkItem { Id = 24, Name = "Silent Snowfall", ImageUrl = "/images/image24.jpg", Medium = "Pastel on Paper", Description = "A delicate scene of snow-covered trees under a soft gray sky, embodying the quiet beauty of winter.", Status = "SOLD" },
+    new ArtworkItem { Id = 25, Name = "Radiant Horizons", ImageUrl = "/images/image25.jpg", Medium = "Acrylic on Canvas", Description = "A sunrise casting vibrant colors across the horizon, with rays of light streaming over distant hills.", Status = "R13 000" },
+    new ArtworkItem { Id = 26, Name = "Urban Symphony", ImageUrl = "/images/image26.jpg", Medium = "Digital Art", Description = "A modern depiction of an urban landscape, blending architecture and movement in bold strokes.", Status = "PENDING" },
+    new ArtworkItem { Id = 27, Name = "Garden of Dreams", ImageUrl = "/images/image27.jpg", Medium = "Oil on Canvas", Description = "An enchanted garden filled with colorful blooms and hidden pathways, inviting a sense of wonder.", Status = "R1 990 000" },
+    new ArtworkItem { Id = 28, Name = "Echoes of Time", ImageUrl = "/images/image28.jpg", Medium = "Acrylic Paint", Description = "A surreal piece reflecting the passage of time through layers of textures and faded colors.", Status = "SOLD" },
+    new ArtworkItem { Id = 29, Name = "Reflections in Blue", ImageUrl = "/images/image29.jpg", Medium = "Watercolor", Description = "A calm river flowing under the blue hues of a twilight sky, mirroring the stillness around.", Status = "DM FOR BID" },
+    new ArtworkItem { Id = 30, Name = "Shadows of the Mind", ImageUrl = "/images/image30.jpg", Medium = "Ink on Paper", Description = "This artwork takes viewers to a shimmering, dreamlike water scene, where a tranquil mountain reflects in the mirrored lake below. Soft, warm tones blend seamlessly with cooler hues, creating a balance between earth’s solidity and nature’s fluid grace. Painted with gentle brushstrokes, the work captures the mountain’s serene dominance over its surroundings. The mountain and lake become one, embodying both stillness and depth. It’s a scene that invites contemplation, evoking a sense of calm and reverence for the natural world’s silent beauty.", Status = "R6 500" },
+    new ArtworkItem { Id = 31, Name = "Echoes of Dawn", ImageUrl = "/images/image31.jpg", Medium = "Oil on Canvas", Description = "A soft and serene dawn breaking over misty hills, with pastel colors blending into the morning sky.", Status = "R11 000" },
+    new ArtworkItem { Id = 32, Name = "Verdant Valleys", ImageUrl = "/images/image32.jpg", Medium = "Watercolor", Description = "A lush valley in full bloom, with vibrant greens capturing the freshness of spring.", Status = "DM FOR BID" },
+    new ArtworkItem { Id = 33, Name = "Ancient Ruins", ImageUrl = "/images/image33.jpg", Medium = "Acrylic Paint", Description = "An old, forgotten ruin standing alone under a starry night, hinting at stories lost in time.", Status = "R14 500" },
+    new ArtworkItem { Id = 34, Name = "Mystic Forest", ImageUrl = "/images/image34.jpg", Medium = "Gouache", Description = "An enchanting forest bathed in moonlight, filled with shadows and secrets.", Status = "SOLD" },
+    new ArtworkItem { Id = 35, Name = "Golden Oasis", ImageUrl = "/images/image35.jpg", Medium = "Digital Art", Description = "This artwork takes viewers to a shimmering, dreamlike water scene, where a tranquil mountain reflects in the mirrored lake below. Soft, warm tones blend seamlessly with cooler hues, creating a balance between earth’s solidity and nature’s fluid grace. Painted with gentle brushstrokes, the work captures the mountain’s serene dominance over its surroundings. The mountain and lake become one, embodying both stillness and depth. It’s a scene that invites contemplation, evoking a sense of calm and reverence for the natural world’s silent beauty.", Status = "R19 000" },
+    new ArtworkItem { Id = 36, Name = "Forgotten Roads", ImageUrl = "/images/image36.jpg", Medium = "Ink on Paper", Description = "A winding path through an old village, lined with cobblestones and memories of the past.", Status = "PENDING" },
+    new ArtworkItem { Id = 37, Name = "Sunlit Shores", ImageUrl = "/images/image37.jpg", Medium = "Watercolor", Description = "A bright and cheerful seascape where golden sands meet the crystal-clear ocean under a blue sky.", Status = "R12 000" },
+    new ArtworkItem { Id = 38, Name = "Celestial Dreams", ImageUrl = "/images/image38.jpg", Medium = "Acrylic on Canvas", Description = "A cosmic-inspired piece, full of swirling stars and galaxies, evoking the mysteries of the universe.", Status = "SOLD" },
+    new ArtworkItem { Id = 39, Name = "Winter's Embrace", ImageUrl = "/images/image39.jpg", Medium = "Pastel on Paper", Description = "Snow-laden trees under a pale winter sky, capturing the serene and quiet beauty of the season.", Status = "R95 000" },
+    new ArtworkItem { Id = 40, Name = "City Reflections", ImageUrl = "/images/image40.jpg", Medium = "Digital Art", Description = "This artwork takes viewers to a shimmering, dreamlike water scene, where a tranquil mountain reflects in the mirrored lake below. Soft, warm tones blend seamlessly with cooler hues, creating a balance between earth’s solidity and nature’s fluid grace. Painted with gentle brushstrokes, the work captures the mountain’s serene dominance over its surroundings. The mountain and lake become one, embodying both stillness and depth. It’s a scene that invites contemplation, evoking a sense of calm and reverence for the natural world’s silent beauty.", Status = "DM FOR BID" },
+    new ArtworkItem { Id = 41, Name = "Vibrant Fields", ImageUrl = "/images/image41.jpg", Medium = "Acrylic Paint", Description = "An explosion of color in a field of wildflowers, celebrating the joy of spring in full bloom.", Status = "R10 000" },
+     new ArtworkItem { Id = 42, Name = "The Forgotten Grove", ImageUrl = "/images/image45.jpg", Medium = "Oil on Canvas", Description = "A hidden grove deep within an old forest, painted in soft greens and browns to evoke a sense of mystery.", Status = "SOLD" },
+    // new Artwork { Id = 43, Name = "Sea of Tranquility", ImageUrl = "/images/image43.jpg", Medium = "Watercolor", Description = "A calm sea stretching into the horizon, with gentle waves lapping against the shore.", Status = "R13 000" },
+    // new Artwork { Id = 44, Name = "Reflections of Gold", ImageUrl = "/images/image44.jpg", Medium = "Mixed Media", Description = "A golden forest scene where autumn leaves reflect the light in shades of yellow and orange.", Status = "DM FOR BID" },
+    // new Artwork { Id = 45, Name = "Eternal Flame", ImageUrl = "/images/image45.jpg", Medium = "Acrylic on Canvas", Description = "A powerful, abstract interpretation of fire and passion, with bold strokes of red and orange.", Status = "PENDING ORDER" },
+
+    };
+
+    private class ArtworkItem
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
+        public string Medium { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Status { get; set; } = string.Empty;
+        public string Author { get; set; } = string.Empty;
         public string ImageUrl { get; set; } = string.Empty;
     }
 }
+<style>
+    .details-container {
+        max-width: 1700px;
+        padding: 40px;
+        background-color: #F7F3F3;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-@if (SelectedArtwork != null)
-{
-    <div>
-        <h2>@SelectedArtwork.Name</h2>
-        <img src="@SelectedArtwork.ImageUrl" alt="@SelectedArtwork.Name" style="max-width: 800px; height: 400px;" />
-        <p>There.</p>
-    </div>
-}
-else
-{
-    <p>Artwork not found.</p>
-}
+    .artwork-header {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+        .artwork-header img {
+            width: 450px;
+            height: 450px;
+            border-radius: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+    .artwork-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+
+        .artwork-info h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0;
+            color: #333;
+        }
+
+        .artwork-info p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+    .price {
+        font-size: 24px; 
+        font-weight: bold;
+        color: #888;
+    }
+
+    .author-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+        font-size: 18px; 
+        color: #555;
+    }
+
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #DDD;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .actions {
+        display: flex;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+        .actions span {
+            font-size: 16px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: transform 0.05s;
+        }
+
+    .similar-section {
+        margin-top: 50px;
+        cursor: pointer;
+        transition: transform 0.05s;
+    }
+
+        .similar-section h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+            cursor: pointer;
+            transition: transform 0.05s;
+        }
+
+    .similar-artworks {
+        display: flex;
+        gap: 20px;
+        padding-bottom: 15px;
+        cursor: pointer;
+        transition: transform 0.05s;
+        padding-top: 10px;
+    }
+
+    .similar-artwork-item {
+        width: 180px;
+        cursor: pointer;
+        text-align: center;
+        color: #333;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .similar-artwork-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+        }
+
+        .similar-artwork-item img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .similar-artwork-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .similar-artwork-item p {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #555;
+            transition: transform 0.05s;
+        }
+
+    .status-tag {
+        background-color: #f2f2f2;
+        color: #000;
+        padding: 5px 10px;
+        border-radius: 12px;
+        font-weight: bold;
+        align-self: flex-start;
+    }
+
+    .status-sold {
+        background-color: red;
+        color: white;
+    }
+
+    .status-bid {
+        background-color: green;
+        color: white;
+    }
+
+    .status-pending {
+        background-color: darkorange;
+        color: white;
+    }
+</style>

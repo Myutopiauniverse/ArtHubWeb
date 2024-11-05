@@ -1,0 +1,46 @@
+﻿@page "/"
+@inject ArtworkService ArtworkService
+
+<h3>Featured Artworks</h3>
+
+<div class="artwork-gallery">
+    @foreach (var artwork in artworks)
+    {
+        <div class="artwork-card">
+            <img src="@artwork.Image" alt="@artwork.Name" class="artwork-image" />
+            <h4>@artwork.Name</h4>
+            <p>@artwork.Description</p>
+            <p><strong>Medium:</strong> @artwork.Type</p>
+            <p><strong>Dimensions:</strong> @artwork.Height x @artwork.Width x @artwork.Depth cm</p>
+        </div>
+    }
+</div>
+@code {
+    private List<Artwork> artworks;
+
+    protected override async Task OnInitializedAsync()
+    {
+        artworks = await ArtworkService.GetArtworksAsync();
+    }
+}
+<style>
+        .artwork-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .artwork-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        text-align: center;
+    }
+
+    .artwork-image {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+</style>
