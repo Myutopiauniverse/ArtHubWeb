@@ -1,0 +1,105 @@
+﻿@page "/upload"
+@inject IWebHostEnvironment WebHostEnvironment
+@inject NavigationManager Navigation
+<div style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px; font-family: Arial, sans-serif; background-color: #f7f7f9; padding: 20px; border-radius: 8px; width: 600px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1);">
+        @if (isSuccess)
+        {
+            <div style="display: flex; justify-content: center; align-items: center; padding: 10px; background-color: #28a745; color: white; border-radius: 5px; margin-bottom: 20px;">
+                Successfully saved changes
+            </div>
+        }
+
+        @if (isError)
+        {
+            <div style="display: flex; justify-content: center; align-items: center; padding: 10px; background-color: #dc3545; color: white; border-radius: 5px; margin-bottom: 20px;">
+                Please select a file before submitting.
+            </div>
+        }
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px;">
+            <img src="/img/Avator.jpeg" style="width: 120px; height: 120px; border-radius: 50%;" alt="Profile Picture" />
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="btn btn-primary" style="background-color: #007bff; border: none; padding: 8px 20px; border-radius: 5px;">Change</button>
+                <button class="btn btn-danger" style="background-color: #dc3545; border: none; padding: 8px 20px; border-radius: 5px;">Delete</button>
+            </div>
+        </div>
+
+        <EditForm Model="@fileModel" OnValidSubmit="@HandleFileUpload">
+            
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>Name</label>
+                <InputText @bind-Value="fileModel.Name" class="form-control" disabled />
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>Surname</label>
+                <InputText @bind-Value="fileModel.Surname" class="form-control" disabled />
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>Email</label>
+                <InputText @bind-Value="fileModel.Email" class="form-control" disabled />
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>Biography</label>
+                <InputTextArea @bind-Value="fileModel.Biography" class="form-control" placeholder="Biography" />
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>Mission Statement</label>
+                <InputTextArea @bind-Value="fileModel.MissionStatement" class="form-control" placeholder="Mission Statement" />
+            </div>
+
+            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 20px;">
+                <InputFile OnChange="HandleSelected" class="btn btn-secondary" style="background-color: #6c757d; border: none; color: white;" />
+                <button type="button" class="btn" style="background-color: #6c757d; border: none; color: white;">C.V Document</button>
+            </div>
+
+            <button type="submit" class="btn" style="background-color: #007bff; border: none; width: 100%; padding: 10px; color: white; font-size: 16px; border-radius: 5px;">Make Changes</button>
+        </EditForm>
+    </div>
+</div>
+
+
+@code {
+    private FileUploadModel fileModel = new FileUploadModel();
+    private bool isSuccess = false;
+    private bool isError = false;
+
+    private async Task HandleFileUpload()
+    {
+        if (fileModel.File == null)
+        {
+            isError = true;
+            isSuccess = false;
+            return;
+        }
+
+        isError = false;
+
+        var path = Path.Combine(WebHostEnvironment.WebRootPath, "uploads", fileModel.File.Name);
+        using var fileStream = new FileStream(path, FileMode.Create);
+        await fileModel.File.OpenReadStream().CopyToAsync(fileStream);
+
+        await Task.Delay(3000);
+
+        isSuccess = true;
+        StateHasChanged();
+        await Task.Delay(2000);
+        Navigation.NavigateTo("/viewpdf");
+    }
+
+    private void HandleSelected(InputFileChangeEventArgs e)
+    {
+        fileModel.File = e.File;
+    }
+
+    public class FileUploadModel
+    {
+        public IBrowserFile File { get; set; }
+        public string Username { get; set; } = "ArtHub";
+        public string Name { get; set; } = "Luyanda";
+        public string Surname { get; set; } = "Zondi";
+        public string Email { get; set; } = "S224040405@mandela.ac.za";
+        public string Biography { get; set; }
+        public string MissionStatement { get; set; }
+    }
+}

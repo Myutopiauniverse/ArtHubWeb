@@ -1,0 +1,114 @@
+﻿@page "/viewpdf"
+
+<div class="pdf-viewer-container">
+    <h3 class="pdf-viewer-title">View PDF Files</h3>
+
+    @if (files.Count > 0)
+    {
+        <div class="file-selection">
+            <label for="pdfSelect">Select a PDF file:</label>
+            <select id="pdfSelect" @onchange="HandleSelectionChanged" class="file-dropdown">
+                <option value="">-- Choose a file --</option>
+                @foreach (var file in files)
+                {
+                    <option value="@file">@Path.GetFileName(file)</option>
+                }
+            </select>
+        </div>
+
+        @if (!string.IsNullOrEmpty(selectedFile))
+        {
+            <div class="pdf-display">
+                <iframe src="@selectedFile" width="100%" height="90vh"></iframe>
+            </div>
+        }
+    }
+    else
+    {
+        <p class="no-files-message">No PDF files uploaded.</p>
+    }
+</div>
+
+@code {
+    private List<string> files = new List<string>();
+    private string selectedFile;
+
+    protected override void OnInitialized()
+    {
+        LoadFiles();
+    }
+
+    private void LoadFiles()
+    {
+        var path = Path.Combine("wwwroot", "uploads");
+        files = Directory.GetFiles(path, "*.pdf").Select(f => $"/uploads/{Path.GetFileName(f)}").ToList();
+    }
+
+    private void HandleSelectionChanged(ChangeEventArgs e)
+    {
+        selectedFile = e.Value.ToString();
+    }
+}
+
+<style>
+    .pdf-viewer-container {
+        max-width: 1600px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .pdf-viewer-title {
+        text-align: center;
+        font-size: 26px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .file-selection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+        .file-selection label {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+    .file-dropdown {
+        width: 100%;
+        max-width: 300px;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        color: #333;
+        background-color: #fff;
+        appearance: none;
+    }
+
+    .pdf-display {
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+        .pdf-display iframe {
+            width: 100%;
+            height: 90vh; 
+            border: none;
+        }
+
+    .no-files-message {
+        text-align: center;
+        font-size: 16px;
+        color: #777;
+        margin-top: 20px;
+    }
+</style>

@@ -1,0 +1,27 @@
+﻿@page "/download"
+
+<h3>Download PDF Files</h3>
+
+<ul>
+    @foreach (var file in files)
+    {
+        <li>
+            <a href="@file" download>@Path.GetFileName(file)</a>
+        </li>
+    }
+</ul>
+
+@code {
+    private List<string> files = new List<string>();
+
+    protected override void OnInitialized()
+    {
+        LoadFiles();
+    }
+
+    private void LoadFiles()
+    {
+        var path = Path.Combine("wwwroot", "uploads");
+        files = Directory.GetFiles(path, "*.pdf").Select(f => $"/uploads/{Path.GetFileName(f)}").ToList();
+    }
+}

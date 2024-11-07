@@ -1,0 +1,130 @@
+﻿@page "/explorer"
+@inject NavigationManager NavigationManager
+
+
+<CascadingAuthenticationState>
+        <AuthorizeView>
+        <Authorized>
+            <h1>Explore Artworks</h1>
+            <div class="explorer-container">
+                @foreach (var artwork in Artworks)
+                {
+                    <div class="image-item" @onclick="() => NavigateToArtwork(artwork.Id)">
+                        <img src="@artwork.ImageUrl" alt="@artwork.Name" />
+                    </div>
+                }
+            </div>
+         </Authorized>
+        <NotAuthorized>
+            <div style="text-align: center; margin-top: 50px;">
+                <div class="alert alert-danger">
+                    You are not allowed on this page. Please log in to access the content.
+                </div>
+                <img src="/img/notallowed.jpg" alt="Access Denied" style="max-width: 300px; height: auto; margin-top: 20px;" />
+                <p style="margin-top: 10px;">
+                    <a href="/Account/Login" class="btn btn-primary">Go to Login</a>
+                </p>
+            </div>
+
+        </NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
+
+@code {
+    private List<Artwork> Artworks { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        Artworks = new List<Artwork>
+        {
+            new Artwork { Id = 1, Name = "Sunfire", ImageUrl = "/images/image1.jpg" },
+new Artwork { Id = 2, Name = "The Silent Shore (1944)", ImageUrl = "/images/image2.jpg" },
+new Artwork { Id = 3, Name = "Whispers of the Baobab", ImageUrl = "/images/image3.jpg" },
+new Artwork { Id = 4, Name = "Storm over the Valley", ImageUrl = "/images/image4.jpg" },
+new Artwork { Id = 5, Name = "Dance of the Lilies", ImageUrl = "/images/image5.jpg" },
+new Artwork { Id = 6, Name = "Midnight City Lights", ImageUrl = "/images/image6.jpg" },
+new Artwork { Id = 7, Name = "Echoes of Silence", ImageUrl = "/images/image7.jpg" },
+new Artwork { Id = 8, Name = "Flight of the Phoenix", ImageUrl = "/images/image8.jpg" },
+new Artwork { Id = 9, Name = "Harvest Moon", ImageUrl = "/images/image9.jpg" },
+new Artwork { Id = 10, Name = "Crystal Waters", ImageUrl = "/images/image10.jpg" },
+new Artwork { Id = 11, Name = "Sunset Symphony", ImageUrl = "/images/image11.jpg" },
+new Artwork { Id = 12, Name = "Desert Mirage", ImageUrl = "/images/image12.jpg" },
+new Artwork { Id = 13, Name = "Serenity in Bloom", ImageUrl = "/images/image13.jpg" },
+new Artwork { Id = 14, Name = "Waves of Freedom", ImageUrl = "/images/image14.jpg" },
+new Artwork { Id = 15, Name = "Forest Whispers", ImageUrl = "/images/image15.jpg" },
+new Artwork { Id = 16, Name = "Ancient Sands", ImageUrl = "/images/image16.jpg" },
+new Artwork { Id = 17, Name = "Golden Fields", ImageUrl = "/images/image17.jpg" },
+new Artwork { Id = 18, Name = "Dreams of the Cosmos", ImageUrl = "/images/image18.jpg" },
+new Artwork { Id = 19, Name = "Twilight Reflections", ImageUrl = "/images/image19.jpg" },
+new Artwork { Id = 20, Name = "Mountain Majesty", ImageUrl = "/images/image20.jpg" },
+new Artwork { Id = 21, Name = "Metropolitan Maze", ImageUrl = "/images/image21.jpg" },
+new Artwork { Id = 22, Name = "Oasis of Calm", ImageUrl = "/images/image22.jpg" },
+new Artwork { Id = 23, Name = "Fires of Creation", ImageUrl = "/images/image23.jpg" },
+new Artwork { Id = 24, Name = "Silent Snowfall", ImageUrl = "/images/image24.jpg" },
+new Artwork { Id = 25, Name = "Radiant Horizons", ImageUrl = "/images/image25.jpg" },
+new Artwork { Id = 26, Name = "Urban Symphony", ImageUrl = "/images/image26.jpg" },
+new Artwork { Id = 27, Name = "Garden of Dreams", ImageUrl = "/images/image27.jpg" },
+new Artwork { Id = 28, Name = "Echoes of Time", ImageUrl = "/images/image28.jpg" },
+new Artwork { Id = 29, Name = "Reflections in Blue", ImageUrl = "/images/image29.jpg" },
+new Artwork { Id = 30, Name = "Shadows of the Mind", ImageUrl = "/images/image30.jpg" },
+new Artwork { Id = 31, Name = "Echoes of Dawn", ImageUrl = "/images/image31.jpg" },
+new Artwork { Id = 32, Name = "Verdant Valleys", ImageUrl = "/images/image32.jpg" },
+new Artwork { Id = 33, Name = "Ancient Ruins", ImageUrl = "/images/image33.jpg" },
+new Artwork { Id = 34, Name = "Mystic Forest", ImageUrl = "/images/image34.jpg" },
+new Artwork { Id = 35, Name = "Golden Oasis", ImageUrl = "/images/image35.jpg" },
+new Artwork { Id = 36, Name = "Forgotten Roads", ImageUrl = "/images/image36.jpg" },
+new Artwork { Id = 37, Name = "Sunlit Shores", ImageUrl = "/images/image37.jpg" },
+new Artwork { Id = 38, Name = "Celestial Dreams", ImageUrl = "/images/image38.jpg" },
+new Artwork { Id = 39, Name = "Winter's Embrace", ImageUrl = "/images/image39.jpg" },
+new Artwork { Id = 40, Name = "City Reflections", ImageUrl = "/images/image40.jpg" },
+new Artwork { Id = 41, Name = "Vibrant Fields", ImageUrl = "/images/image41.jpg" },
+new Artwork { Id = 42, Name = "The Forgotten Grove", ImageUrl = "/images/image45.jpg" },
+
+
+        };
+    }
+
+    private void NavigateToArtwork(int artworkId)
+    {
+        NavigationManager.NavigateTo($"/artwork/{artworkId}");
+    }
+
+    private class Artwork
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
+    }
+}
+<PageTitle>Explorer</PageTitle>
+<style>
+    .explorer-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        overflow-y: auto;
+        max-height: 80vh;
+        padding: 20px;
+    }
+
+    .image-item {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.1s;
+    }
+
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-item:hover {
+            transform: scale(1.05);
+        }
+</style>

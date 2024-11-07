@@ -1,0 +1,57 @@
+﻿@page "/artworks"
+@inject HttpClient Http
+@using ArtHubWeb.Data
+
+<h3>Artworks</h3>
+
+@if (artworks == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (!artworks.Any())
+{
+    <p>No artworks found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Medium</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Height</th>
+                <th>Width</th>
+                <th>Depth</th>
+                <th>Price</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var artwork in artworks)
+            {
+                <tr>
+                    <td>@artwork.Name</td>
+                    <td>@artwork.Medium</td>
+                    <td>@artwork.Type</td>
+                    <td>@artwork.Status</td>
+                    <td>@artwork.Height</td>
+                    <td>@artwork.Width</td>
+                    <td>@artwork.Depth</td>
+                    <td>@artwork.Price:C</td>
+                    <td>@artwork.CreatedAt.ToString("MM/dd/yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Artwork> artworks;
+
+    protected override async Task OnInitializedAsync()
+    {
+        artworks = await Http.GetFromJsonAsync<List<Artwork>>("api/Artworks");
+    }
+}

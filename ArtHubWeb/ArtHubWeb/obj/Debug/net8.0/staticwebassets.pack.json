@@ -1,0 +1,209 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ArtHubWeb.bundle.scp.css",
+      "PackagePath": "staticwebassets\\ArtHubWeb.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image1.jpg",
+      "PackagePath": "staticwebassets\\images\\image1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image10.jpg",
+      "PackagePath": "staticwebassets\\images\\image10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image11.jpg",
+      "PackagePath": "staticwebassets\\images\\image11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image12.jpg",
+      "PackagePath": "staticwebassets\\images\\image12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image13.jpg",
+      "PackagePath": "staticwebassets\\images\\image13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image14.jpg",
+      "PackagePath": "staticwebassets\\images\\image14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image15.jpg",
+      "PackagePath": "staticwebassets\\images\\image15.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image16.jpg",
+      "PackagePath": "staticwebassets\\images\\image16.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image17.jpg",
+      "PackagePath": "staticwebassets\\images\\image17.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image18.jpg",
+      "PackagePath": "staticwebassets\\images\\image18.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image19.jpg",
+      "PackagePath": "staticwebassets\\images\\image19.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image2.jpg",
+      "PackagePath": "staticwebassets\\images\\image2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image20.jpg",
+      "PackagePath": "staticwebassets\\images\\image20.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image21.jpg",
+      "PackagePath": "staticwebassets\\images\\image21.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image22.jpg",
+      "PackagePath": "staticwebassets\\images\\image22.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image23.jpg",
+      "PackagePath": "staticwebassets\\images\\image23.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image24.jpg",
+      "PackagePath": "staticwebassets\\images\\image24.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image25.jpg",
+      "PackagePath": "staticwebassets\\images\\image25.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image26.jpg",
+      "PackagePath": "staticwebassets\\images\\image26.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image27.jpg",
+      "PackagePath": "staticwebassets\\images\\image27.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image28.jpg",
+      "PackagePath": "staticwebassets\\images\\image28.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image29.jpg",
+      "PackagePath": "staticwebassets\\images\\image29.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image3.jpg",
+      "PackagePath": "staticwebassets\\images\\image3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image30.jpg",
+      "PackagePath": "staticwebassets\\images\\image30.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image31.jpg",
+      "PackagePath": "staticwebassets\\images\\image31.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image32.jpg",
+      "PackagePath": "staticwebassets\\images\\image32.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image33.jpg",
+      "PackagePath": "staticwebassets\\images\\image33.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image34.jpg",
+      "PackagePath": "staticwebassets\\images\\image34.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image35.jpg",
+      "PackagePath": "staticwebassets\\images\\image35.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image36.jpg",
+      "PackagePath": "staticwebassets\\images\\image36.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image37.jpg",
+      "PackagePath": "staticwebassets\\images\\image37.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image38.jpg",
+      "PackagePath": "staticwebassets\\images\\image38.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image39.jpg",
+      "PackagePath": "staticwebassets\\images\\image39.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image4.jpg",
+      "PackagePath": "staticwebassets\\images\\image4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image40.jpg",
+      "PackagePath": "staticwebassets\\images\\image40.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image41.jpg",
+      "PackagePath": "staticwebassets\\images\\image41.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image45.jpg",
+      "PackagePath": "staticwebassets\\images\\image45.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image5.jpg",
+      "PackagePath": "staticwebassets\\images\\image5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image6.jpg",
+      "PackagePath": "staticwebassets\\images\\image6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image7.jpg",
+      "PackagePath": "staticwebassets\\images\\image7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image8.jpg",
+      "PackagePath": "staticwebassets\\images\\image8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\wwwroot\\images\\image9.jpg",
+      "PackagePath": "staticwebassets\\images\\image9.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ArtHubWeb.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ArtHubWeb.props",
+      "PackagePath": "build\\ArtHubWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ArtHubWeb.props",
+      "PackagePath": "buildMultiTargeting\\ArtHubWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ArtHubWeb.props",
+      "PackagePath": "buildTransitive\\ArtHubWeb.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

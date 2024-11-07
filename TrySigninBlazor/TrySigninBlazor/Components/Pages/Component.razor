@@ -1,0 +1,314 @@
+﻿@page "/search"
+@inject NavigationManager NavigationManager
+
+ <CascadingAuthenticationState>
+        <AuthorizeView>
+        <Authorized>
+            <PageTitle>Home</PageTitle>
+            <div class="control-panel">
+                <input type="text" placeholder="Search by name, description, or medium..." @bind="searchTerm" />
+
+                <select @bind="selectedMedium">
+                    <option value="">Filter by Medium</option>
+                    @foreach (var medium in Artworks.Select(a => a.Medium).Distinct())
+                    {
+                        <option value="@medium">@medium</option>
+                    }
+                </select>
+
+                <select @bind="selectedStatus">
+                    <option value="">Filter by Status</option>
+                    @foreach (var status in Artworks.Select(a => a.Status).Distinct())
+                    {
+                        <option value="@status">@status</option>
+                    }
+                </select>
+                <select @bind="selectedPriceRange">
+                    <option value="">Filter by Price</option>
+                    <option value="1-9999">R1 - R9,999</option>
+                    <option value="10000-49999">R10,000 - R49,999</option>
+                    <option value="50000+">R50,000+</option>
+                </select>
+
+                <select @bind="sortBy">
+                    <option value="name">Sort by Name</option>
+                    <option value="medium">Sort by Medium</option>
+                    <option value="price">Sort by Price</option>
+                </select>
+
+                <select @bind="sortOrder">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </div>
+
+            <div class="home-container">
+                @foreach (var artwork in FilteredArtworks)
+                {
+                    <div class="image-item" @onclick="() => NavigateToArtwork(artwork.Id)">
+                        <img src="@artwork.ImageUrl" alt="@artwork.Name" />
+                        <div class="text-content">
+                            <p><strong>@artwork.Name</strong></p>
+                            <p>@artwork.Medium</p>
+                            <p>@artwork.Description</p>
+
+                            @if (artwork.Status != "SOLD" && artwork.Status != "PENDING" && artwork.Status != "DM FOR BID")
+                            {
+                                <p>Price: R @artwork.Price.ToString("N0")</p>
+                            }
+                            <p class="status-tag @(artwork.Status == "SOLD" ? "status-sold" : artwork.Status == "PENDING" ? "status-pending" : "status-bid")">
+                                @artwork.Status
+                            </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </Authorized>
+        <NotAuthorized>
+            <div style="text-align: center; margin-top: 50px;">
+                <div class="alert alert-danger">
+                    You are not allowed on this page. Please log in to access the content.
+                </div>
+                <img src="/img/notallowed.jpg" alt="Access Denied" style="max-width: 300px; height: auto; margin-top: 20px;" />
+                <p style="margin-top: 10px;">
+                    <a href="/Account/Login" class="btn btn-primary">Go to Login</a>
+                </p>
+            </div>
+
+        </NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
+
+@code {
+    private List<Artwork> Artworks { get; set; } = new();
+    private string searchTerm = string.Empty;
+    private string selectedMedium = string.Empty;
+    private string selectedStatus = string.Empty;
+    private string selectedPriceRange = string.Empty;
+    private string sortBy = "name";
+    private string sortOrder = "asc";
+
+    private IEnumerable<Artwork> FilteredArtworks
+    {
+        get
+        {
+            var filtered = Artworks
+                .Where(a => string.IsNullOrEmpty(searchTerm) ||
+                            a.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                            a.Description.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                            a.Medium.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                .Where(a => string.IsNullOrEmpty(selectedMedium) || a.Medium == selectedMedium)
+                .Where(a => string.IsNullOrEmpty(selectedStatus) || a.Status == selectedStatus)
+                .Where(a => string.IsNullOrEmpty(selectedPriceRange) || IsPriceInRange(a.Price, selectedPriceRange));
+
+            filtered = (sortBy, sortOrder) switch
+            {
+                ("name", "asc") => filtered.OrderBy(a => a.Name),
+                ("name", "desc") => filtered.OrderByDescending(a => a.Name),
+                ("medium", "asc") => filtered.OrderBy(a => a.Medium),
+                ("medium", "desc") => filtered.OrderByDescending(a => a.Medium),
+                ("price", "asc") => filtered.OrderBy(a => a.Price),
+                ("price", "desc") => filtered.OrderByDescending(a => a.Price),
+                _ => filtered
+            };
+
+            return filtered;
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        Artworks = new List<Artwork>
+        {
+            new Artwork { Id = 1, Name = "Sunfire", ImageUrl = "/images/image1.jpg", Medium = "Watercolor", Description = "In this forceful, evocative painting...", Status = "SOLD", Price = 12000 },
+            new Artwork { Id = 2, Name = "Moonlight", ImageUrl = "/images/image2.jpg", Medium = "Oil", Description = "A peaceful, serene depiction...", Status = "AVAILABLE", Price = 8000 },
+             new Artwork { Id = 3, Name = "Whispers of the Baobab", ImageUrl = "/images/image3.jpg", Medium = "Gouache", Description = "Over the bushland of Africa rises a single baobab, its root as old as that of the forgotten warrior tribe that once defended this land from colonial forces.", Status = "DM FOR BID" },
+    new Artwork { Id = 4, Name = "Storm over the Valley", ImageUrl = "/images/image4.jpg", Medium = "Oil on Canvas", Description = "A dark and moody landscape depicting an impending storm sweeping across a fertile valley.", Status = "PENDING" },
+    new Artwork { Id = 5, Name = "Dance of the Lilies", ImageUrl = "/images/image5.jpg", Medium = "Acrylic on Panel", Description = "A vibrant composition of water lilies swaying gracefully under the golden morning light.", Status = "AVAILABLE",Price= 18000 },
+    new Artwork { Id = 6, Name = "Midnight City Lights", ImageUrl = "/images/image6.jpg", Medium = "Digital Art", Description = "The bustling energy of a city at midnight captured with neon lights and blurred headlights.", Status = "DM FOR BID" },
+    new Artwork { Id = 7, Name = "Echoes of Silence", ImageUrl = "/images/image7.jpg", Medium = "Ink on Paper", Description = "An abstract depiction of sound and silence clashing, using bold strokes and empty spaces to represent auditory voids.", Status = "PENDING" },
+    new Artwork { Id = 8, Name = "Flight of the Phoenix", ImageUrl = "/images/image8.jpg", Medium = "Mixed Media", Description = "A phoenix rising from a bed of ashes, symbolizing hope and rebirth in vibrant colors and textures.", Status = "SOLD" },
+    new Artwork { Id = 9, Name = "Harvest Moon", ImageUrl = "/images/image9.jpg", Medium = "Pastel on Paper", Description = "Soft, warm tones depict a golden autumn landscape under the glow of a large harvest moon.", Status = "AVAILABLE",Price= 10500 },
+    new Artwork { Id = 10, Name = "Crystal Waters", ImageUrl = "/images/image10.jpg", Medium = "Watercolor", Description = "An ocean scene with crystal-clear waves rolling gently towards the shore under a cloudless sky.", Status = "DM FOR BID" },
+    new Artwork { Id = 11, Name = "Sunset Symphony", ImageUrl = "/images/image11.jpg", Medium = "Oil on Canvas", Description = "A symphony of colors as the sun sets over a tranquil lake, reflecting warm hues onto still waters.", Status = "AVAILABLE", Price = 20000 },
+    new Artwork { Id = 12, Name = "Desert Mirage", ImageUrl = "/images/image12.jpg", Medium = "Acrylic on Canvas", Description = "A surreal desert landscape, with mirages of water and distant mountains under a blazing sun.", Status = "PENDING" },
+    new Artwork { Id = 13, Name = "Serenity in Bloom", ImageUrl = "/images/image13.jpg", Medium = "Gouache", Description = "A detailed close-up of delicate wildflowers in bloom, showcasing the beauty of nature’s intricacies.", Status = "AVAILABLE", Price = 7500 },
+    new Artwork { Id = 14, Name = "Waves of Freedom", ImageUrl = "/images/image14.jpg", Medium = "Oil on Canvas", Description = "Powerful ocean waves crashing against rocks, representing resilience and the endless pursuit of freedom.", Status = "DM FOR BID" },
+    new Artwork { Id = 15, Name = "Forest Whispers", ImageUrl = "/images/image15.jpg", Medium = "Pastel on Paper", Description = "A tranquil forest scene with soft beams of sunlight filtering through the trees, hinting at the mysteries within.", Status = "AVAILABLE", Price = 12000 },
+    new Artwork { Id = 16, Name = "Ancient Sands", ImageUrl = "/images/image16.jpg", Medium = "Mixed Media", Description = "An archaeological view of ancient sands and artifacts buried by time, layered in earth tones and textures.", Status = "SOLD" },
+    new Artwork { Id = 17, Name = "Golden Fields", ImageUrl = "/images/image17.jpg", Medium = "Watercolor", Description = "Golden wheat fields swaying gently in the breeze, capturing the essence of a peaceful countryside.", Status = "DM FOR BID" },
+    new Artwork { Id = 18, Name = "Dreams of the Cosmos", ImageUrl = "/images/image18.jpg", Medium = "Digital Art", Description = "An abstract representation of outer space, with swirling galaxies and stars in rich, dark hues.", Status = "AVAILABLE", Price = 22000 },
+    new Artwork { Id = 19, Name = "Twilight Reflections", ImageUrl = "/images/image19.jpg", Medium = "Acrylic on Canvas", Description = "A quiet lake reflecting the colors of twilight, blending soft pinks, purples, and blues.", Status = "DM FOR BID" },
+    new Artwork { Id = 20, Name = "Mountain Majesty", ImageUrl = "/images/image20.jpg", Medium = "Oil on Canvas", Description = "A towering mountain range standing proud under a crystal-clear sky, showcasing nature's grandeur.", Status = "AVAILABLE", Price = 150000 },
+    new Artwork { Id = 21, Name = "Metropolitan Maze", ImageUrl = "/images/image21.jpg", Medium = "Ink on Paper", Description = "A complex, intricate design representing the chaotic yet structured flow of a bustling city.", Status = "SOLD" },
+    new Artwork { Id = 22, Name = "Oasis of Calm", ImageUrl = "/images/image22.jpg", Medium = "Watercolor", Description = "A serene oasis surrounded by desert, where cool blue waters meet arid, sandy terrain.", Status = "DM FOR BID" },
+    new Artwork { Id = 23, Name = "Fires of Creation", ImageUrl = "/images/image23.jpg", Medium = "Mixed Media", Description = "A bold piece symbolizing the fires of creativity, with splashes of red and orange against a dark background.", Status = "PENDING" },
+    new Artwork { Id = 24, Name = "Silent Snowfall", ImageUrl = "/images/image24.jpg", Medium = "Pastel on Paper", Description = "A delicate scene of snow-covered trees under a soft gray sky, embodying the quiet beauty of winter.", Status = "SOLD" },
+    new Artwork { Id = 25, Name = "Radiant Horizons", ImageUrl = "/images/image25.jpg", Medium = "Acrylic on Canvas", Description = "A sunrise casting vibrant colors across the horizon, with rays of light streaming over distant hills.", Status = "AVAILABLE", Price = 13000 },
+    new Artwork { Id = 26, Name = "Urban Symphony", ImageUrl = "/images/image26.jpg", Medium = "Digital Art", Description = "A modern depiction of an urban landscape, blending architecture and movement in bold strokes.", Status = "PENDING" },
+    new Artwork { Id = 27, Name = "Garden of Dreams", ImageUrl = "/images/image27.jpg", Medium = "Oil on Canvas", Description = "An enchanted garden filled with colorful blooms and hidden pathways, inviting a sense of wonder.", Status = "AVAILABLE", Price = 1990000 },
+    new Artwork { Id = 28, Name = "Echoes of Time", ImageUrl = "/images/image28.jpg", Medium = "Acrylic Paint", Description = "A surreal piece reflecting the passage of time through layers of textures and faded colors.", Status = "SOLD" },
+    new Artwork { Id = 29, Name = "Reflections in Blue", ImageUrl = "/images/image29.jpg", Medium = "Watercolor", Description = "A calm river flowing under the blue hues of a twilight sky, mirroring the stillness around.", Status = "DM FOR BID" },
+    new Artwork { Id = 30, Name = "Shadows of the Mind", ImageUrl = "/images/image30.jpg", Medium = "Ink on Paper", Description = "An abstract ink drawing exploring the depth of the human mind and the shadows within.", Status = "AVAILABLE", Price = 6500 },
+    new Artwork { Id = 31, Name = "Echoes of Dawn", ImageUrl = "/images/image31.jpg", Medium = "Oil on Canvas", Description = "A soft and serene dawn breaking over misty hills, with pastel colors blending into the morning sky.", Status = "AVAILABLE", Price = 11000 },
+    new Artwork { Id = 32, Name = "Verdant Valleys", ImageUrl = "/images/image32.jpg", Medium = "Watercolor", Description = "A lush valley in full bloom, with vibrant greens capturing the freshness of spring.", Status = "DM FOR BID" },
+    new Artwork { Id = 33, Name = "Ancient Ruins", ImageUrl = "/images/image33.jpg", Medium = "Acrylic Paint", Description = "An old, forgotten ruin standing alone under a starry night, hinting at stories lost in time.", Status = "AVAILABLE", Price = 14500 },
+    new Artwork { Id = 34, Name = "Mystic Forest", ImageUrl = "/images/image34.jpg", Medium = "Gouache", Description = "An enchanting forest bathed in moonlight, filled with shadows and secrets.", Status = "SOLD" },
+    new Artwork { Id = 35, Name = "Golden Oasis", ImageUrl = "/images/image35.jpg", Medium = "Digital Art", Description = "A breathtaking view of a desert oasis at sunset, with golden light casting warmth across the landscape.", Status = "AVAILABLE", Price = 19000 },
+    new Artwork { Id = 36, Name = "Forgotten Roads", ImageUrl = "/images/image36.jpg", Medium = "Ink on Paper", Description = "A winding path through an old village, lined with cobblestones and memories of the past.", Status = "PENDING" },
+    new Artwork { Id = 37, Name = "Sunlit Shores", ImageUrl = "/images/image37.jpg", Medium = "Watercolor", Description = "A bright and cheerful seascape where golden sands meet the crystal-clear ocean under a blue sky.", Status = "AVAILABLE", Price = 12000 },
+    new Artwork { Id = 38, Name = "Celestial Dreams", ImageUrl = "/images/image38.jpg", Medium = "Acrylic on Canvas", Description = "A cosmic-inspired piece, full of swirling stars and galaxies, evoking the mysteries of the universe.", Status = "SOLD" },
+    new Artwork { Id = 39, Name = "Winter's Embrace", ImageUrl = "/images/image39.jpg", Medium = "Pastel on Paper", Description = "Snow-laden trees under a pale winter sky, capturing the serene and quiet beauty of the season.", Status = "AVAILABLE", Price = 95000 },
+    new Artwork { Id = 40, Name = "City Reflections", ImageUrl = "/images/image40.jpg", Medium = "Digital Art", Description = "A modern cityscape reflected in water, with shimmering lights creating a mesmerizing effect.", Status = "DM FOR BID" },
+    new Artwork { Id = 41, Name = "Vibrant Fields", ImageUrl = "/images/image41.jpg", Medium = "Acrylic Paint", Description = "An explosion of color in a field of wildflowers, celebrating the joy of spring in full bloom.", Status = "AVAILABLE", Price = 10000 },
+     new Artwork { Id = 42, Name = "The Forgotten Grove", ImageUrl = "/images/image45.jpg", Medium = "Oil on Canvas", Description = "A hidden grove deep within an old forest, painted in soft greens and browns to evoke a sense of mystery.", Status = "SOLD" },
+
+        };
+    }
+
+    private bool IsPriceInRange(decimal price, string range)
+    {
+        return range switch
+        {
+            "1-9999" => price >= 1 && price <= 9999,
+            "10000-49999" => price >= 10000 && price <= 49999,
+            "50000+" => price >= 50000,
+            _ => true
+        };
+    }
+
+    private void NavigateToArtwork(int artworkId)
+    {
+        NavigationManager.NavigateTo($"/artwork/{artworkId}");
+    }
+
+    private class Artwork
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
+        public string Medium { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Status { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+    }
+}
+<style>
+
+    .control-panel {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #ddd;
+    }
+
+        .control-panel input[type="text"],
+        .control-panel select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #333;
+            min-width: 200px;
+            transition: border-color 0.2s;
+        }
+
+            .control-panel input[type="text"]:focus,
+            .control-panel select:focus {
+                border-color: #007bff;
+                outline: none;
+            }
+
+        .control-panel input::placeholder {
+            color: #888;
+        }
+
+        .control-panel select {
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+    .home-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        overflow-y: auto;
+        max-height: 90vh;
+        padding: 20px;
+    }
+
+        .home-container::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        .home-container::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 15px;
+        }
+
+        .home-container::-webkit-scrollbar-thumb {
+            background-color: #c0c0c0;
+            border-radius: 15px;
+            border: 2px solid #f8f9fa;
+            height: 300px;
+        }
+
+    .image-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 15px;
+        width: 1500px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: transform 0.05s;
+    }
+
+        .image-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 20px;
+        }
+
+        .image-item .text-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-item p {
+            margin: 5px 0;
+        }
+
+        .image-item:hover {
+            transform: scale(1.02);
+        }
+
+    .status-tag {
+        background-color: #f2f2f2;
+        color: #000;
+        padding: 5px 10px;
+        border-radius: 12px;
+        font-weight: bold;
+        align-self: flex-start;
+    }
+
+    .status-sold {
+        background-color: red;
+        color: white;
+    }
+
+    .status-bid {
+        background-color: green;
+        color: white;
+    }
+
+    .status-pending {
+        background-color: darkorange;
+        color: white;
+    }
+</style>

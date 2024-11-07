@@ -1,0 +1,410 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\pages\\artworkdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\pages\\artworkdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\hubs\\blazorchatsamplehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\hubs\\blazorchatsamplehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\data\\trysigninblazorcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\data\\trysigninblazorcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\data\\profilemanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\data\\profilemanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\data\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\data\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\data\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\data\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\pages\\landingscreen.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\pages\\landingscreen.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\pages\\explorer.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\pages\\explorer.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\pages\\component1.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\pages\\component1.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\pages\\component.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\pages\\component.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\pages\\chatpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\pages\\chatpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\pages\\accountdocuments.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\pages\\accountdocuments.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\wwwroot\\img\\noaccess.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\wwwroot\\img\\noaccess.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\migrations\\trysigninblazor\\trysigninblazorcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\migrations\\trysigninblazor\\trysigninblazorcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\pages\\postpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\pages\\postpages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|c:\\users\\user\\source\\repos\\trysigninblazor\\components\\pages\\postpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{155C6247-F8B1-4865-946F-96F561C774C3}|TrySigninBlazor\\TrySigninBlazor.csproj|solutionrelative:trysigninblazor\\components\\pages\\postpages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BlazorChatSampleHub.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Hubs\\BlazorChatSampleHub.cs",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Hubs\\BlazorChatSampleHub.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Hubs\\BlazorChatSampleHub.cs",
+              "RelativeToolTip": "TrySigninBlazor\\Hubs\\BlazorChatSampleHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T07:15:19.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TrySigninBlazorContext.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Data\\TrySigninBlazorContext.cs",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Data\\TrySigninBlazorContext.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Data\\TrySigninBlazorContext.cs",
+              "RelativeToolTip": "TrySigninBlazor\\Data\\TrySigninBlazorContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T07:15:15.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "NoAccess.jpg -  [English (United States)] - Bitmap [1000x560, 24 bit, JPG]",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\wwwroot\\img\\NoAccess.jpg",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\wwwroot\\img\\NoAccess.jpg",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\wwwroot\\img\\NoAccess.jpg -  [English (United States)] - Bitmap [1000x560, 24 bit, JPG]",
+              "RelativeToolTip": "TrySigninBlazor\\wwwroot\\img\\NoAccess.jpg -  [English (United States)] - Bitmap [1000x560, 24 bit, JPG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-05T06:57:21.189Z",
+              "EditorCaption": " -  [English (United States)] - Bitmap [1000x560, 24 bit, JPG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AccountDocuments.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\AccountDocuments.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Pages\\AccountDocuments.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\AccountDocuments.razor",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Pages\\AccountDocuments.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-05T06:43:24.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Counter.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\Counter.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Pages\\Counter.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\Counter.razor",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Pages\\Counter.razor",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-05T06:00:39.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-05T06:35:56.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Component1.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\Component1.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Pages\\Component1.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\Component1.razor",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Pages\\Component1.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-05T06:12:38.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Component.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\Component.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Pages\\Component.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\Component.razor*",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Pages\\Component.razor*",
+              "ViewState": "AgIAABsBAAAAAAAAAAAAANYAAAB1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-05T03:12:02.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ArtworkDetails.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\ArtworkDetails.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Pages\\ArtworkDetails.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\ArtworkDetails.razor*",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Pages\\ArtworkDetails.razor*",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAiwCcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-05T02:50:29.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "TrySigninBlazorContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Migrations\\TrySigninBlazor\\TrySigninBlazorContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Migrations\\TrySigninBlazor\\TrySigninBlazorContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Migrations\\TrySigninBlazor\\TrySigninBlazorContextModelSnapshot.cs",
+              "RelativeToolTip": "TrySigninBlazor\\Migrations\\TrySigninBlazor\\TrySigninBlazorContextModelSnapshot.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:45:44.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Create.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\PostPages\\Create.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Pages\\PostPages\\Create.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\PostPages\\Create.razor",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Pages\\PostPages\\Create.razor",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-05T00:27:57.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Program.cs",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Program.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Program.cs",
+              "RelativeToolTip": "TrySigninBlazor\\Program.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:27:16.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\appsettings.json",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\appsettings.json",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\appsettings.json",
+              "RelativeToolTip": "TrySigninBlazor\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-05T00:27:05.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProfileManagement.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Data\\ProfileManagement.cs",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Data\\ProfileManagement.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Data\\ProfileManagement.cs",
+              "RelativeToolTip": "TrySigninBlazor\\Data\\ProfileManagement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:26:50.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Post.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Data\\Post.cs",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Data\\Post.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Data\\Post.cs",
+              "RelativeToolTip": "TrySigninBlazor\\Data\\Post.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:26:35.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Data\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Data\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Data\\ApplicationUser.cs",
+              "RelativeToolTip": "TrySigninBlazor\\Data\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:26:31.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "TrySigninBlazor\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:26:27.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\PostPages\\Index.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Pages\\PostPages\\Index.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\PostPages\\Index.razor",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Pages\\PostPages\\Index.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-05T00:25:40.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Pages\\Home.razor",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-04T14:49:52.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Explorer.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\Explorer.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Pages\\Explorer.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\Explorer.razor",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Pages\\Explorer.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-04T14:49:47.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LandingScreen.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\LandingScreen.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Pages\\LandingScreen.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\LandingScreen.razor",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Pages\\LandingScreen.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-04T14:49:44.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Chatpage.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\Chatpage.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Pages\\Chatpage.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Pages\\Chatpage.razor",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Pages\\Chatpage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-04T14:49:38.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "TrySigninBlazor\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\TrySigninBlazor\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "TrySigninBlazor\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-04T14:40:16.054Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

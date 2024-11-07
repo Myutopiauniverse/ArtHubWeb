@@ -1,0 +1,295 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\Saved Games\\ArtHubWeb\\ArtHubWeb\\ArtHubWeb\\Components\\Pages\\Artworks.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\controllers\\artworkscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\controllers\\artworkscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\controllers\\artworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\controllers\\artworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\data\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\data\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\components\\pages\\artworklist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\components\\pages\\artworklist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\data\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\data\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\arthubweb.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\arthubweb.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\AppData\\Local\\Temp\\0jpey4wf..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\data\\migrations\\20241106161209_seconddatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\data\\migrations\\20241106161209_seconddatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|c:\\users\\user\\source\\repos\\arthubweb\\arthubweb\\data\\migrations\\20241106154521_initialdatabase2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9456888-B652-4714-A83A-9A6B6361AC83}|ArtHubWeb\\ArtHubWeb.csproj|solutionrelative:arthubweb\\data\\migrations\\20241106154521_initialdatabase2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Artworks.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\Saved Games\\ArtHubWeb\\ArtHubWeb\\ArtHubWeb\\Components\\Pages\\Artworks.razor",
+              "RelativeDocumentMoniker": "..\\..\\Saved Games\\ArtHubWeb\\ArtHubWeb\\ArtHubWeb\\Components\\Pages\\Artworks.razor",
+              "ToolTip": "C:\\Users\\user\\source\\Saved Games\\ArtHubWeb\\ArtHubWeb\\ArtHubWeb\\Components\\Pages\\Artworks.razor",
+              "RelativeToolTip": "..\\..\\Saved Games\\ArtHubWeb\\ArtHubWeb\\ArtHubWeb\\Components\\Pages\\Artworks.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-07T07:41:34.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ArtworkList.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Components\\Pages\\ArtworkList.razor",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Components\\Pages\\ArtworkList.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Components\\Pages\\ArtworkList.razor",
+              "RelativeToolTip": "ArtHubWeb\\Components\\Pages\\ArtworkList.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-07T01:58:25.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ArtworksController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Controllers\\ArtworksController.cs",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Controllers\\ArtworksController.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Controllers\\ArtworksController.cs",
+              "RelativeToolTip": "ArtHubWeb\\Controllers\\ArtworksController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAswGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T01:52:20.875Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "ArtHubWeb\\Components\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-07T01:36:06.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Components\\_Imports.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Components\\_Imports.razor",
+              "RelativeToolTip": "ArtHubWeb\\Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-07T01:36:02.638Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Weather.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Components\\Pages\\Weather.razor",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Components\\Pages\\Weather.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Components\\Pages\\Weather.razor",
+              "RelativeToolTip": "ArtHubWeb\\Components\\Pages\\Weather.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-06T18:00:05.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Program.cs",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Program.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Program.cs",
+              "RelativeToolTip": "ArtHubWeb\\Program.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAADwv0UAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T17:18:35.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\appsettings.json",
+              "RelativeDocumentMoniker": "ArtHubWeb\\appsettings.json",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\appsettings.json",
+              "RelativeToolTip": "ArtHubWeb\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-06T17:18:30.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "ArtHubWeb\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABsAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-06T17:13:32.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Data\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Data\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Data\\ApplicationUser.cs",
+              "RelativeToolTip": "ArtHubWeb\\Data\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T17:08:34.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ArtworkController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Controllers\\ArtworkController.cs",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Controllers\\ArtworkController.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Controllers\\ArtworkController.cs",
+              "RelativeToolTip": "ArtHubWeb\\Controllers\\ArtworkController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T16:35:45.366Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ArtHubWeb.csproj",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\ArtHubWeb.csproj",
+              "RelativeDocumentMoniker": "ArtHubWeb\\ArtHubWeb.csproj",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\ArtHubWeb.csproj",
+              "RelativeToolTip": "ArtHubWeb\\ArtHubWeb.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-11-06T16:34:23.757Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "20241106161209_SecondDatabase.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Data\\Migrations\\20241106161209_SecondDatabase.cs",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Data\\Migrations\\20241106161209_SecondDatabase.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Data\\Migrations\\20241106161209_SecondDatabase.cs",
+              "RelativeToolTip": "ArtHubWeb\\Data\\Migrations\\20241106161209_SecondDatabase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T16:12:09.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "ArtHubWeb\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T15:48:53.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "20241106154521_InitialDatabase2.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Data\\Migrations\\20241106154521_InitialDatabase2.cs",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Data\\Migrations\\20241106154521_InitialDatabase2.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Data\\Migrations\\20241106154521_InitialDatabase2.cs",
+              "RelativeToolTip": "ArtHubWeb\\Data\\Migrations\\20241106154521_InitialDatabase2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T15:45:21.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Artwork.cs",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Data\\Artwork.cs",
+              "RelativeDocumentMoniker": "ArtHubWeb\\Data\\Artwork.cs",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\ArtHubWeb\\ArtHubWeb\\Data\\Artwork.cs",
+              "RelativeToolTip": "ArtHubWeb\\Data\\Artwork.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T15:44:38.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "0jpey4wf..sql",
+              "DocumentMoniker": "C:\\Users\\user\\AppData\\Local\\Temp\\0jpey4wf..sql",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\0jpey4wf..sql",
+              "ToolTip": "C:\\Users\\user\\AppData\\Local\\Temp\\0jpey4wf..sql",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\0jpey4wf..sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-11-06T15:42:32.595Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
